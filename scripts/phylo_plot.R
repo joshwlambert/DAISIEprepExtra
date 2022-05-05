@@ -1,59 +1,37 @@
-library(ape)
+library(TreeSim)
 library(phylobase)
 library(ggplot2)
 library(ggtree)
 
 set.seed(2)
-phylo <- rtree(n = 25)
-phylo <- phytools::force.ultrametric(tree = phylo, method = "nnls")
+phylo <- TreeSim::sim.bd.taxa(n = 25, numbsim = 1, lambda = 1, mu = 0)[[1]]
 phylo <- phylo4(phylo)
 tip_data <- data.frame(
-  colour = c("black", "blue", "black", "black", "black", "black", "black",
-             "black", "black", "black", "black", "red", "black", "black",
-             "black", "black", "black", "black", "red", "red", "red",
-             "red", "red", "black", "black"), row.names = nodeId(phylo, "tip"))
+  colour = c("black", "blue", "black", "black", "red", "black", "red",
+             "red", "red", "red", "black", "black", "black", "black",
+             "red", "red", "red", "black", "black", "black", "black",
+             "black", "black", "black", "black"),
+  row.names = nodeId(phylo, "tip"))
 node_data <- data.frame(
-  colour = c("black", "black", "black", "black", "black", "black", "black",
-             "black", "black", "black", "black", "black", "black", "black",
-             "black", "black", "black", "black", "black", "red",
-             "red", "black", "red", "black"),
+  colour = c("black", "black", "black", "black", "black", "red", "black",
+             "black", "red", "black", "black", "black", "black", "black",
+             "black", "black", "red", "black", "red", "red",
+             "black", "black", "black", "black"),
   row.names = nodeId(phylo, "internal"))
-
-
 
 phylod <- phylo4d(x = phylo, tip.data = tip_data, node.data = node_data)
 
-dt <- data.frame(node = c(12, 2),
-                 image = c("7fb9bea8-e758-4986-afb2-95a2c3bf983d",
-                           "0174801d-15a6-4668-bfe0-4c421fbe51e8"),
-                 name = c("specie A", "specie B"))
-
-ggtree(phylod, aes(color = I(colour)), layout = "circular", size = 0.75) +
-  geom_tippoint(aes(colour = colour), alpha = 0.5, size = 5) +
-  geom_nodepoint(aes(colour = colour), alpha = 0.5, size = 5) +
+ggtree(phylod, aes(color = I(colour)), layout = "circular", size = 0.6) +
+  geom_tippoint(aes(colour = colour), alpha = 0.5, size = 2, stroke = 1) +
+  geom_nodepoint(aes(colour = colour), alpha = 0.5, size = 2, stroke = 1) +
   geom_highlight(
     data = data.frame(
-      node = c(12, 45, 48, 2),
-      type = c("Endemic", "Endemic", "Endemic", "Non-endemic")
+      node = c(2, 17, 31, 44),
+      type = c("Non-endemic", "Endemic", "Endemic", "Endemic")
     ),
     aes(node = node, fill = type),
-    type = "roundrect"
-  ) + geom_cladelab(
-    data = data.frame(
-      node = c(19, 20, 21, 2, 12, 22, 23),
-      image = c(
-        "c64e59f8-5d99-4cf5-bcfd-c73022e288e2",
-        "c64e59f8-5d99-4cf5-bcfd-c73022e288e2",
-        "5560b442-61f3-4b8d-8b23-1694e3367379",
-        "1b42d9de-ad53-400d-8230-fb76602b742b",
-        "9d382526-f8be-457a-b97d-f323a146b42a",
-        "9f7d8da1-6f81-42dc-848c-4126e50c2bc6",
-        "9f7d8da1-6f81-42dc-848c-4126e50c2bc6"),
-      name = c("#FF6961", "#FF6961", "#FF6961", "#78A2CC", "#FF6961", "#FF6961", "#FF6961")
-    ),
-    mapping = aes(node = node, label = name,
-                  image = image, color = name),
-    geom = "phylopic", offset = 0.1, offset.text=0.3) +
+    type = "rect"
+  ) +
   labs(fill =  "Island Species Endemicity")
 
 
