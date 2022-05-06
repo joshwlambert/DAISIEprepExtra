@@ -5,19 +5,25 @@ library(cowplot)
 
 world <- ne_countries(scale = "large", returnclass = "sf")
 
+# crs_robinson = "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs"
+
 world_map <- ggplot(data = world) +
   geom_sf(color = "gray50", fill = "gray50") +
   geom_rect(xmin = -166, xmax = -149, ymin = 16, ymax = 25,
             fill = NA, colour = "forestgreen", size = 1) +
   theme_bw() +
-  theme(plot.margin = margin(0, 0, 0, 0))
+  theme(plot.margin = margin(0, 0, 0, 0),
+        panel.grid.major = element_line(colour = "transparent"))
+
+
+  #coord_sf(crs = "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs", expand = TRUE)
 
 hawaii_map <- ggplot(data = world) +
   geom_sf(color = "gray50", fill = "gray50") +
   coord_sf(xlim = c(-165, -150), ylim = c(18, 23), expand = TRUE) +
-  annotation_scale(location = "bl", width_hint = 0.3) +
+  annotation_scale(location = "bl", width_hint = 0.2) +
   annotation_north_arrow(location = "bl", which_north ="true",
-                         pad_x = unit(0.75, "in"), pad_y = unit(0.5, "in"),
+                         pad_x = unit(0.25, "in"), pad_y = unit(0.25, "in"),
                          style = north_arrow_fancy_orienteering) +
   annotate(geom = "text", x = -163, y = 23, label = "Hawaiian Archipelago",
            fontface = "bold", color = "grey22", size = 4) +
@@ -37,7 +43,6 @@ facet_map <- plot_grid(
   hawaii_map,
   nrow = 2,
   align = "v",
-  axis = "lr",
   labels = c("A", "C")
 )
 
@@ -192,7 +197,7 @@ legend <- get_legend(
   # create some space to the left of the legend
   island_phylo + theme(legend.box.margin = margin(0, 0, 0, 12))
 )
-facet_phylo <- plot_grid(prow, legend, rel_widths = c(3, .8))
+facet_phylo <- plot_grid(prow, legend, rel_widths = c(2.5, 1))
 
 global_island <- cowplot::plot_grid(facet_map, facet_phylo, nrow = 1)
 
@@ -201,7 +206,7 @@ ggplot2::ggsave(
   filename = file.path("plots", "global_island.png"),
   device = "png",
   width = 300,
-  height = 180,
+  height = 150,
   units = "mm",
   dpi = 600
 )
