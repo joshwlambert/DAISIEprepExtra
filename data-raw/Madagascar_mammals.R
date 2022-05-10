@@ -16,7 +16,9 @@ madagascar_mammals$Name_in_Upham <- name_in_upham
 
 status_species <- c()
 for (i in seq_along(madagascar_mammals$Status_Species)) {
-  status_species[i] <- DAISIEprep::translate_status(madagascar_mammals$Status_Species)
+  status_species[i] <- DAISIEprep::translate_status(
+    madagascar_mammals$Status_Species[i]
+  )
 }
 madagascar_mammals$Status_Species <- status_species
 

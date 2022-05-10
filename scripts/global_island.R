@@ -197,7 +197,7 @@ legend <- get_legend(
   # create some space to the left of the legend
   island_phylo + theme(legend.box.margin = margin(0, 0, 0, 12))
 )
-facet_phylo <- plot_grid(prow, legend, rel_widths = c(2.5, 1))
+facet_phylo <- plot_grid(prow, legend, rel_widths = c(2, 1))
 
 global_island <- cowplot::plot_grid(facet_map, facet_phylo, nrow = 1)
 

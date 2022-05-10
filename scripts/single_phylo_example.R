@@ -1,9 +1,18 @@
 # load madagascar mammals species data table
-load("data/madagascar_mammals.rda")
+load(file = system.file(
+  "data/madagascar_mammals.rda",
+  package = "DAISIEprepExtra"
+))
 
 # load the DNA only and complete trees
-dna_phylo <- ape::read.nexus(file = "data/Upham_dna_mcc.tre")
-complete_phylo <- ape::read.nexus(file = "data/Upham_complete_mcc.tre")
+dna_phylo <- ape::read.nexus(file = system.file(
+  "inst/extdata/Upham_dna_mcc.tre",
+  package = "DAISIEprepExtra"
+))
+complete_phylo <- ape::read.nexus(file = system.file(
+  "inst/extdata/Upham_complete_mcc.tre",
+  package = "DAISIEprepExtra"
+))
 
 # convert trees to phylo4 objects
 dna_phylo <- phylobase::phylo4(dna_phylo)
@@ -15,18 +24,22 @@ endemicity_status <- DAISIEprep::create_endemicity_status(
   island_species = madagascar_mammals
 )
 
+# combine tree and endemicity status
 phylod <- phylobase::phylo4d(dna_phylo, endemicity_status)
 
+# extract island community using min algorithm
 island_tbl <- DAISIEprep::extract_island_species(
   phylod = phylod,
   extraction_method = "min"
 )
 
+# convert to daisie data table
 daisie_datatable <- DAISIEprep::as_daisie_datatable(
   island_tbl = island_tbl,
   island_age = 88
 )
 
+# convert to daisie data list
 daisie_data_list <- DAISIEprep::create_daisie_data(
   daisie_datatable = daisie_datatable,
   island_age = 88,
