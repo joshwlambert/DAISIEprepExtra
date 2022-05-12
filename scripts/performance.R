@@ -3,7 +3,7 @@ library(ape)
 library(microbenchmark)
 
 parameter_space <- expand.grid(
-  tree_size = c(10, 25, 50),  #c(10, 100, 1000, 10000)
+  tree_size = c(10, 50, 100, 500, 1000, 5000, 10000),
   prob_on_island = c(0.2, 0.5),
   prob_endemic = c(0.2, 0.8)
 )
@@ -18,8 +18,7 @@ set.seed(
 times_list <- list()
 for (i in seq_len(nrow(parameter_space))) {
 
-  print(i)
-
+  message("Parameter set: ", i)
 
   median_times_min <- c()
   median_times_asr <- c()
