@@ -97,12 +97,6 @@ for (i in seq_len(nrow(parameter_space))) {
   times_list[[i]] <- list(median_times_min, median_times_asr)
 }
 
-for (i in seq_along(times_list)) {
-  for (j in seq_along(times_list[[i]])) {
-
-  }
-}
-
 # convert list to data frame
 results <- data.frame(
   parameter_space = rep(1:nrow(parameter_space), each = 2),
