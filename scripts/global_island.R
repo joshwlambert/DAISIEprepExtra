@@ -2,54 +2,38 @@ library(ggplot2)
 library(ggspatial)
 library(rnaturalearth)
 library(cowplot)
+library(sf)
+library(TreeSim)
+library(phylobase)
+library(ggtree)
 
-world <- ne_countries(scale = "large", returnclass = "sf")
+load("data/world_border.rda")
+world <- ne_countries(scale = "medium", returnclass = "sf")
 
-# crs_robinson = "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs"
+PROJ <- "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+
+world <- st_transform(world, PROJ)
 
 world_map <- ggplot(data = world) +
   geom_sf(color = "gray50", fill = "gray50") +
-  geom_rect(xmin = -166, xmax = -149, ymin = 16, ymax = 25,
-            fill = NA, colour = "forestgreen", size = 1) +
-  theme_bw() +
+  geom_polygon(
+    data=world_border,
+    aes(x=long, y=lat),
+    colour="black",
+    fill="transparent",
+    size = 0.25
+  ) +
+  theme_void() +
   theme(plot.margin = margin(0, 0, 0, 0),
         panel.grid.major = element_line(colour = "transparent"))
 
-
-  #coord_sf(crs = "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m no_defs", expand = TRUE)
+world <- ne_countries(scale = "large", returnclass = "sf")
 
 hawaii_map <- ggplot(data = world) +
   geom_sf(color = "gray50", fill = "gray50") +
-  coord_sf(xlim = c(-165, -150), ylim = c(18, 23), expand = TRUE) +
-  annotation_scale(location = "bl", width_hint = 0.2) +
-  annotation_north_arrow(location = "bl", which_north ="true",
-                         pad_x = unit(0.25, "in"), pad_y = unit(0.25, "in"),
-                         style = north_arrow_fancy_orienteering) +
-  annotate(geom = "text", x = -163, y = 23, label = "Hawaiian Archipelago",
-           fontface = "bold", color = "grey22", size = 4) +
-  annotate(geom = "text", x = -161, y = 19, label = "Pacific Ocean",
-           fontface = "italic", color = "grey22", size = 4) +
-  annotate(geom = "text", x = -153, y = 22, label = "Pacific Ocean",
-           fontface = "italic", color = "grey22", size = 4) +
-  ylab("Latitude") +
-  xlab("Longitude") +
-  theme_bw() +
-  theme(panel.border = element_rect(colour = "forestgreen", size = 2),
-        plot.margin = margin(0, 0, 0, 0))
-
-
-facet_map <- plot_grid(
-  world_map,
-  hawaii_map,
-  nrow = 2,
-  align = "v",
-  labels = c("A", "C")
-)
-
-library(TreeSim)
-library(phylobase)
-library(ggplot2)
-library(ggtree)
+  coord_sf(xlim = c(-164, -151), ylim = c(19, 22), expand = TRUE) +
+  theme_void() +
+  theme(plot.margin = margin(0, 0, 0, 0))
 
 set.seed(2)
 phylo <- TreeSim::sim.bd.taxa(n = 25, numbsim = 1, lambda = 1, mu = 0)[[1]]
@@ -96,6 +80,8 @@ global_phylo <- ggtree(
     legend.position = "none"
   )
 
+global <- cowplot::ggdraw(global_phylo) +
+  cowplot::draw_plot(world_map, 0, 0.6, 0.4, 0.4)
 
 horizontal <- data.frame(
   species_id = as.factor(c(1, 2, 4, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)),
@@ -184,22 +170,24 @@ island_phylo <- ggplot2::ggplot(data = horizontal) +
     plot.margin = margin(0, 0, 0, 0)
   )
 
+legend <- get_legend(island_phylo)
+
+island_phylo <- island_phylo + theme(legend.position = "none")
+
+island <- cowplot::ggdraw(island_phylo) +
+  cowplot::draw_plot(hawaii_map, 0, 0.6, 0.4, 0.4)
+
 prow <- plot_grid(
-  global_phylo + theme(legend.position="none"),
-  island_phylo + theme(legend.position="none"),
+  global + theme(legend.position="none"),
+  island + theme(legend.position="none"),
   align = 'vh',
-  labels = c("B", "D"),
+  labels = "AUTO",
   hjust = -1,
-  nrow = 2,
+  nrow = 1,
   rel_heights = c(1, 1)
 )
-legend <- get_legend(
-  # create some space to the left of the legend
-  island_phylo + theme(legend.box.margin = margin(0, 0, 0, 12))
-)
-facet_phylo <- plot_grid(prow, legend, rel_widths = c(2, 1))
 
-global_island <- cowplot::plot_grid(facet_map, facet_phylo, nrow = 1)
+global_island <- plot_grid(prow, legend, rel_widths = c(4, 1))
 
 ggplot2::ggsave(
   plot = global_island,
@@ -210,5 +198,4 @@ ggplot2::ggsave(
   units = "mm",
   dpi = 600
 )
-
 
