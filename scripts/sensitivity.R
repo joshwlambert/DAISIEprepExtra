@@ -56,7 +56,7 @@ for (i in seq_len(nrow(parameter_space))) {
   dna_phylod <- phylobase::phylo4d(dna_phylo, endemicity_status_dna)
   complete_phylod <- phylobase::phylo4d(complete_phylo, endemicity_status_complete)
 
-  if (parameter_space$extraction_method == "asr") {
+  if (parameter_space$extraction_method[i] == "asr") {
     dna_phylod <- add_asr_node_states(
       phylod = phylod,
       asr_method = parameter_space$asr_method[i]
@@ -118,6 +118,6 @@ for (i in seq_len(nrow(parameter_space))) {
     ddmodel = 11,
     jitter = 1e-5
   )
-  ml_list[[i]] <- list(ml_dna, ml_complete)
+  ml_list[[i]] <- list(dna = ml_dna, complete = ml_complete)
 }
 
