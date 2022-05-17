@@ -1,14 +1,35 @@
 Package: DAISIEprepExtra
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Runs Analysis and Plots for DAISIEprep Paper
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: Joshua W. Lambert
+Authors@R: 
+    person(given = "Joshua W.",
+        family = "Lambert",
+        email = "j.w.l.lambert@rug.nl",
+        role = c("aut", "cre"),
+        comment = c(ORCID = "0000-0001-5218-3046"))
+Maintainer: Joshua W. Lambert <j.w.l.lambert@rug.nl>
+Description: This is a data and scripts package that stores the materials needed
+    for reproduction of the examples, analyses and plots for the applications paper
+    describing the DAISIEprep package.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    DAISIEprep,
+    DAISIE,
+    ggplot2,
+    ggspatial,
+    rnaturalearth,
+    cowplot,
+    sf,
+    TreeSim,
+    phylobase,
+    ggtree
+Remotes:
+    joshwlambert/DAISIEprep
+    rsetienne/DAISIE
 Depends: 
-    R (>= 2.10)
+    R (>= 4.1)
 RoxygenNote: 7.1.2
