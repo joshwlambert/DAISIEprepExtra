@@ -4,15 +4,19 @@ hawaii_asters <- read.csv(file = system.file(
   package = "DAISIEprepExtra"
 ))
 
-aster_tip_labels <- paste(hawaii_asters$Genus, hawaii_asters$Species, sep = "_")
+aster_tip_labels <- paste(
+  hawaii_asters$Genus,
+  hawaii_asters$Species,
+  sep = "_"
+)
 
 aster_endemicity_status <- c()
 for (i in seq_len(nrow(hawaii_asters))) {
   aster_endemicity_status[i] <- DAISIEprep::translate_status(
     hawaii_asters$Endemic[i]
   )
-
 }
+
 hawaii_asters <- data.frame(
   tip_labels = aster_tip_labels,
   tip_endemicity_status =aster_endemicity_status
@@ -28,6 +32,32 @@ silversword <- ape::read.nexus(file = system.file(
   "inst/extdata/Landis_2018_g4_mcc.tre",
   package = "DAISIEprepExtra"
 ))
+
+# remove subspecies from the silversword to not inflate species richness on the
+# archipelago, subspecies can be optionally kept if deemed important for
+# the analysis of the diversification rate
+split_names <- strsplit(x = silversword$tip.label, split = "_")
+genus_names <- sapply(split_names, "[[", 1)
+species_names <- sapply(split_names, "[[", 2)
+genus_species_names <- paste(genus_names, species_names, sep = "_")
+island_multi_tip <- genus_species_names[which(duplicated(genus_species_names))]
+island_multi_tip <- unique(island_multi_tip)
+tip_position <- list()
+for (i in seq_along(island_multi_tip)) {
+  tip_position[[i]] <- grep(
+    pattern = island_multi_tip[i],
+    x = silversword$tip.label
+  )
+}
+
+drop_random_subspecies <- unlist(lapply(tip_position, function(x) {
+  sample(x = x, size = length(x) - 1, replace = FALSE)
+}))
+
+silversword <- ape::drop.tip(
+  phy = silversword,
+  tip = drop_random_subspecies
+)
 
 # load biden tree when available
 
@@ -60,6 +90,66 @@ island_tbl <- DAISIEprep::extract_island_species(
   phylod = silversword_phylod,
   extraction_method = "min",
   island_tbl = island_tbl
+)
+
+# add Lipochaeta-Melanthera alliance
+island_tbl <- DAISIEprep::add_island_colonist(
+  island_tbl = island_tbl,
+  clade_name = "Lipochaeta-Melanthera",
+  status = "endemic",
+  missing_species = 22,
+  branching_times = c(1.26),
+  min_age = NA
+)
+
+# add Pseudognaphalium
+island_tbl <- DAISIEprep::add_island_colonist(
+  island_tbl = island_tbl,
+  clade_name = "Pseudognaphalium",
+  status = "endemic",
+  missing_species = 1,
+  branching_times = c(6.15),
+  min_age = NA
+)
+
+# add Tetramolopium
+island_tbl <- DAISIEprep::add_island_colonist(
+  island_tbl = island_tbl,
+  clade_name = "Tetramolopium",
+  status = "endemic",
+  missing_species = 11,
+  branching_times = c(6.15),
+  min_age = NA
+)
+
+# add Keysseria
+island_tbl <- DAISIEprep::add_island_colonist(
+  island_tbl = island_tbl,
+  clade_name = "Keysseria",
+  status = "endemic",
+  missing_species = 3,
+  branching_times = c(6.15),
+  min_age = NA
+)
+
+# add Remya
+island_tbl <- DAISIEprep::add_island_colonist(
+  island_tbl = island_tbl,
+  clade_name = "Remya",
+  status = "endemic",
+  missing_species = 3,
+  branching_times = c(6.15),
+  min_age = NA
+)
+
+# add Adenostemma
+island_tbl <- DAISIEprep::add_island_colonist(
+  island_tbl = island_tbl,
+  clade_name = "Adenostemma",
+  status = "nonendemic",
+  missing_species = 0,
+  branching_times = c(6.15),
+  min_age = NA
 )
 
 # convert to daisie data table
