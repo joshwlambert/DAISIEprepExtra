@@ -127,7 +127,7 @@ for (i in seq_len(nrow(parameter_space))) {
   ml_list[[i]] <- list(dna = ml_dna, complete = ml_complete)
 }
 
-output_name <- paste0("sensitivity_param_set_", i, ".rds")
+output_name <- paste0("sensitivity_tree_index", tree_index, ".rds")
 
 output_folder <- file.path("results")
 

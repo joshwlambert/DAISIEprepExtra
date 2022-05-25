@@ -115,3 +115,13 @@ times <- unlist(lapply(times_list, function(x) {lapply(x, FUN =  median)}))
 times <- times / 1e9
 
 results$median_time <- times
+
+output_name <- paste0("performance_param_set_", parameter_index, ".rds")
+
+output_folder <- file.path("results")
+
+output_file_path <- file.path(output_folder, output_name)
+
+saveRDS(object = results, file = output_file_path)
+
+message("Finished")

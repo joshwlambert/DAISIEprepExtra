@@ -56,7 +56,13 @@ multi_phylods_complete <- lapply(
 )
 
 times_list <- list()
+median_times_min_dna <- c()
+median_times_min_complete <- c()
+median_times_asr_dna <- c()
+median_times_asr_complete <- c()
 for (i in seq_along(multi_phylods_dna)) {
+
+  message("Extracting ", i, " of ", length(multi_phylods_dna))
 
   # run extraction
   min_time_dna <- microbenchmark::microbenchmark(
@@ -99,10 +105,10 @@ for (i in seq_along(multi_phylods_dna)) {
     times = 10L
   )
 
-  median_times_min_dna[j] <- median(min_time_dna$time)
-  median_times_min_complete[j] <- median(min_time_complete$time)
-  median_times_asr_dna[j] <- median(asr_time_dna$time)
-  median_times_asr_complete[j] <- median(asr_time_complete$time)
+  median_times_min_dna[i] <- median(min_time_dna$time)
+  median_times_min_complete[i] <- median(min_time_complete$time)
+  median_times_asr_dna[i] <- median(asr_time_dna$time)
+  median_times_asr_complete[i] <- median(asr_time_complete$time)
 }
 
 results <- data.frame(
