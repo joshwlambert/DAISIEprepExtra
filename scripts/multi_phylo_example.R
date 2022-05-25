@@ -77,8 +77,15 @@ endemicity_status_silversword <- DAISIEprep::create_endemicity_status(
 )
 
 # combine tree and endemicity status
-hesperomannia_phylod <- phylobase::phylo4d(hesperomannia, endemicity_status_hesperomannia)
-silversword_phylod <- phylobase::phylo4d(silversword, endemicity_status_silversword)
+hesperomannia_phylod <- phylobase::phylo4d(
+  hesperomannia,
+  endemicity_status_hesperomannia
+)
+
+silversword_phylod <- phylobase::phylo4d(
+  silversword,
+  endemicity_status_silversword
+)
 
 # extract island community using min algorithm
 island_tbl <- DAISIEprep::extract_island_species(
@@ -90,6 +97,16 @@ island_tbl <- DAISIEprep::extract_island_species(
   phylod = silversword_phylod,
   extraction_method = "min",
   island_tbl = island_tbl
+)
+
+# add Artemisia
+island_tbl <- DAISIEprep::add_island_colonist(
+  island_tbl = island_tbl,
+  clade_name = "Artemisia",
+  status = "endemic",
+  missing_species = 3,
+  branching_times = c(6.15),
+  min_age = 1.45
 )
 
 # add Lipochaeta-Melanthera alliance

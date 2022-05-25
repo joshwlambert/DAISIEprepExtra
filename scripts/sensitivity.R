@@ -24,12 +24,22 @@ load(file = system.file(
 ))
 
 # load the DNA only and complete trees
-dna_phylo <- ape::read.nexus(file = system.file(
+dna_phylo_mcc <- ape::read.nexus(file = system.file(
   "inst/extdata/Upham_dna_mcc.tre",
   package = "DAISIEprepExtra"
 ))
-complete_phylo <- ape::read.nexus(file = system.file(
+complete_phylo_mcc <- ape::read.nexus(file = system.file(
   "inst/extdata/Upham_complete_mcc.tre",
+  package = "DAISIEprepExtra"
+))
+
+# load the DNA only and complete posterior distribution of trees
+dna_phylos <- ape::read.nexus(file = system.file(
+  "inst/extdata/Upham_dna_posterior_100.nex",
+  package = "DAISIEprepExtra"
+))
+complete_phylos <- ape::read.nexus(file = system.file(
+  "inst/extdata/Upham_complete_posterior_100.nex",
   package = "DAISIEprepExtra"
 ))
 
@@ -39,22 +49,25 @@ for (i in seq_len(nrow(parameter_space))) {
   message("Parameter set: ", i)
 
   # convert trees to phylo4 objects
-  dna_phylo <- phylobase::phylo4(dna_phylo)
-  complete_phylo <- phylobase::phylo4(complete_phylo)
+  dna_phylo_mcc <- phylobase::phylo4(dna_phylo_mcc)
+  complete_phylo_mcc <- phylobase::phylo4(complete_phylo_mcc)
 
   # create endemicity status data frame
   endemicity_status_dna <- DAISIEprep::create_endemicity_status(
-    phylo = dna_phylo,
+    phylo = dna_phylo_mcc,
     island_species = madagascar_mammals
   )
   endemicity_status_complete <- DAISIEprep::create_endemicity_status(
-    phylo = complete_phylo,
+    phylo = complete_phylo_mcc,
     island_species = madagascar_mammals
   )
 
   # combine tree and endemicity status
-  dna_phylod <- phylobase::phylo4d(dna_phylo, endemicity_status_dna)
-  complete_phylod <- phylobase::phylo4d(complete_phylo, endemicity_status_complete)
+  dna_phylod_mcc <- phylobase::phylo4d(dna_phylo_mcc, endemicity_status_dna)
+  complete_phylod_mcc <- phylobase::phylo4d(
+    complete_phylo_mcc,
+    endemicity_status_complete
+  )
 
   if (parameter_space$extraction_method[i] == "asr") {
     dna_phylod <- add_asr_node_states(
@@ -69,11 +82,11 @@ for (i in seq_len(nrow(parameter_space))) {
 
   # extract island community using min algorithm
   dna_island_tbl <- DAISIEprep::extract_island_species(
-    phylod = dna_phylod,
+    phylod = dna_phylod_mcc,
     extraction_method = parameter_space$extraction_method[i]
   )
   complete_island_tbl <- DAISIEprep::extract_island_species(
-    phylod = complete_phylod,
+    phylod = complete_phylod_mcc,
     extraction_method = parameter_space$extraction_method[i]
   )
 

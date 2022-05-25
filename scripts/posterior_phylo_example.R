@@ -45,19 +45,27 @@ dna_multi_phylods <- list()
 complete_multi_phylods <- list()
 for (i in seq_along(dna_phylos)) {
   message("Converting phylo ", i, " of ", length(dna_phylos))
-  dna_multi_phylods[[i]] <- phylobase::phylo4d(dna_phylos[[i]], endemicity_status_dna[[i]])
-  complete_multi_phylods[[i]] <- phylobase::phylo4d(complete_phylos[[i]], endemicity_status_complete[[i]])
+  dna_multi_phylods[[i]] <- phylobase::phylo4d(
+    dna_phylos[[i]],
+    endemicity_status_dna[[i]]
+  )
+  complete_multi_phylods[[i]] <- phylobase::phylo4d(
+    complete_phylos[[i]],
+    endemicity_status_complete[[i]]
+  )
 }
 
 # extract island community using min algorithm
 multi_island_tbl_dna <- DAISIEprep::multi_extract_island_species(
   multi_phylod = dna_multi_phylods,
-  extraction_method = "min"
+  extraction_method = "min",
+  verbose = TRUE
 )
 
 multi_island_tbl_complete <- DAISIEprep::multi_extract_island_species(
   multi_phylod = complete_multi_phylods,
-  extraction_method = "min"
+  extraction_method = "min",
+  verbose = TRUE
 )
 
 # convert to daisie data table
