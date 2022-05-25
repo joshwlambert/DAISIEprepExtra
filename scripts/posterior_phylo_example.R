@@ -3,12 +3,12 @@ data("madagascar_mammals", package = "DAISIEprepExtra")
 
 # load the DNA only and complete trees
 mammal_posterior_dna <- ape::read.nexus(system.file(
-  "inst/extdata/Upham_dna_posterior_100.nex",
+  "extdata/Upham_dna_posterior_100.nex",
   package = "DAISIEprepExtra"
 ))
 
 mammal_posterior_complete <- ape::read.nexus(system.file(
-  "inst/extdata/Upham_complete_posterior_100.nex",
+  "extdata/Upham_complete_posterior_100.nex",
   package = "DAISIEprepExtra"
 ))
 
