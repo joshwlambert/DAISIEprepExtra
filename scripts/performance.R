@@ -16,13 +16,13 @@ replicates <- 100
 times_list <- list()
 for (i in seq_len(nrow(parameter_space))) {
 
-  message("Parameter set: ", parameter_index)
+  message("Parameter set: ", i, " of ", nrow(parameter_space))
 
   median_times_min <- c()
   median_times_asr <- c()
   for (j in seq_len(replicates)) {
 
-    message("Replicate: ", j)
+    message("Replicate: ", j, " of ", replicates)
 
     # simulate phylogeny
     phylo <- ape::rcoal(n = parameter_space$tree_size[i])

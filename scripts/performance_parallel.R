@@ -27,7 +27,7 @@ median_times_min <- c()
 median_times_asr <- c()
 for (j in seq_len(replicates)) {
 
-  message("Parameter set: ", parameter_index)
+  message("Replicate: ", j, " of ", replicates)
 
   # simulate phylogeny
   phylo <- ape::rcoal(n = parameter_space$tree_size[parameter_index])

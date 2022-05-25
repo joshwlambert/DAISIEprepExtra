@@ -3,8 +3,8 @@
 #SBATCH --partition=gelifes
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --job-name=sensitivity
-#SBATCH --output=/data/p287218/DAISIEprepExtra/logs/sensitivity%a.log
+#SBATCH --job-name=performance
+#SBATCH --output=/data/p287218/DAISIEprepExtra/logs/performance%a.log
 #SBATCH --array=1-28
 #SBATCH --mem=5GB
 

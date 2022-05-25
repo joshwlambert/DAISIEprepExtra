@@ -60,7 +60,7 @@ phylod_complete <- phylobase::phylo4d(
 ml_list <- list()
 for (i in seq_len(nrow(parameter_space))) {
 
-  message("Parameter set: ", i)
+  message("Parameter set: ", i, " of ", nrow(parameter_space))
 
   if (parameter_space$extraction_method[i] == "asr") {
     phylod_dna <- DAISIEprep::add_asr_node_states(
