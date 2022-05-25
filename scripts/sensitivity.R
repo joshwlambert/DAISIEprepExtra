@@ -46,7 +46,7 @@ endemicity_status_complete <- lapply(
 # combine tree and endemicity status
 multi_phylods_dna <- list()
 multi_phylods_complete <- list()
-for (i in seq_along(dna_phylos)) {
+for (i in seq_along(phylos_dna)) {
   message("Converting phylo ", i, " of ", length(phylos_dna))
   multi_phylods_dna[[i]] <- phylobase::phylo4d(
     phylos_dna[[i]],
@@ -153,7 +153,7 @@ for (i in seq_len(nrow(parameter_space))) {
   ml_list[[i]] <- list(dna = ml_dna, complete = ml_complete)
 }
 
-output_name <- paste0("sensitivity.rds")
+output_name <- "sensitivity.rds"
 
 output_folder <- file.path("results")
 

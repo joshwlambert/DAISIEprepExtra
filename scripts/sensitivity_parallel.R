@@ -79,7 +79,7 @@ for (i in seq_len(nrow(parameter_space))) {
     extraction_method = parameter_space$extraction_method[i]
   )
   island_tbl_complete <- DAISIEprep::extract_island_species(
-    phylod = complete_phylod,
+    phylod = phylod_complete,
     extraction_method = parameter_space$extraction_method[i]
   )
 
