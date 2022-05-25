@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=sensitivity
-#SBATCH --output=/data/p287218/DASIEprepExtra/logs/sensitivity.log
+#SBATCH --output=/data/p287218/DAISIEprepExtra/logs/sensitivity.log
 #SBATCH --mem=5GB
 
 ml R
