@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=install_DAISIEprepExtra
-#SBATCH --output=/data/p287218/DAISIEmainland/install_DAISIEprepExtra.log
+#SBATCH --output=/data/p287218/DAISIEprepExtra/install_DAISIEprepExtra.log
 #SBATCH --mem=5GB
 
 mkdir -p logs

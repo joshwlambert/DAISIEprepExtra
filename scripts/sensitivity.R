@@ -29,43 +29,42 @@ complete_phylos <- ape::read.nexus(file = system.file(
   package = "DAISIEprepExtra"
 ))
 
+# convert trees to phylo4 objects
+dna_phylos <- lapply(dna_phylos, phylobase::phylo4)
+complete_phylos <- lapply(complete_phylos, phylobase::phylo4)
+
+# create endemicity status data frame
+endemicity_status_dna <- lapply(
+  dna_phylos,
+  DAISIEprep::create_endemicity_status,
+  island_species = madagascar_mammals
+)
+
+endemicity_status_complete <- lapply(
+  complete_phylos,
+  DAISIEprep::create_endemicity_status,
+  island_species = madagascar_mammals
+)
+
+# combine tree and endemicity status
+dna_multi_phylods <- list()
+complete_multi_phylods <- list()
+for (i in seq_along(dna_phylos)) {
+  message("Converting phylo ", i, " of ", length(dna_phylos))
+  dna_multi_phylods[[i]] <- phylobase::phylo4d(
+    dna_phylos[[i]],
+    endemicity_status_dna[[i]]
+  )
+  complete_multi_phylods[[i]] <- phylobase::phylo4d(
+    complete_phylos[[i]],
+    endemicity_status_complete[[i]]
+  )
+}
+
 ml_list <- list()
 for (i in seq_len(nrow(parameter_space))) {
 
   message("Parameter set: ", i)
-
-  # convert trees to phylo4 objects
-  dna_phylos <- lapply(dna_phylos, phylobase::phylo4)
-  complete_phylos <- lapply(complete_phylos, phylobase::phylo4)
-
-  # create endemicity status data frame
-  endemicity_status_dna <- lapply(
-    dna_phylos,
-    DAISIEprep::create_endemicity_status,
-    island_species = madagascar_mammals
-  )
-
-  endemicity_status_complete <- lapply(
-    complete_phylos,
-    DAISIEprep::create_endemicity_status,
-    island_species = madagascar_mammals
-  )
-
-  # combine tree and endemicity status
-  dna_multi_phylods <- list()
-  complete_multi_phylods <- list()
-  for (j in seq_along(dna_phylos)) {
-    message("Converting phylo ", j, " of ", length(dna_phylos))
-    dna_multi_phylods[[j]] <- phylobase::phylo4d(
-      dna_phylos[[j]],
-      endemicity_status_dna[[j]]
-    )
-    complete_multi_phylods[[j]] <- phylobase::phylo4d(
-      complete_phylos[[j]],
-      endemicity_status_complete[[j]]
-    )
-  }
-
 
   if (parameter_space$extraction_method[i] == "asr") {
     dna_multi_phylods <- lapply(
@@ -81,7 +80,7 @@ for (i in seq_len(nrow(parameter_space))) {
     )
   }
 
-  # extract island community using min algorithm
+  # extract island community
   dna_multi_island_tbl <- DAISIEprep::multi_extract_island_species(
     multi_phylod = dna_multi_phylods,
     extraction_method = parameter_space$extraction_method[i],
