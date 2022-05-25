@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --job-name=sensitivity
 #SBATCH --output=/data/p287218/DAISIEprepExtra/logs/sensitivity%a.log
-#SBATCH --array=1-1000
+#SBATCH --array=1-100
 #SBATCH --mem=5GB
 
 ml R
