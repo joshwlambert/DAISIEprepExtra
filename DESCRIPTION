@@ -28,7 +28,7 @@ Imports:
     phylobase,
     ggtree
 Remotes:
-    joshwlambert/DAISIEprep@develop
+    joshwlambert/DAISIEprep@develop,
     rsetienne/DAISIE
 Depends: 
     R (>= 4.1)
