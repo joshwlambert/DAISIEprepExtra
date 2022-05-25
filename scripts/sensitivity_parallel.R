@@ -27,11 +27,11 @@ load(file = system.file(
 
 # load the DNA only and complete posterior distribution of trees
 dna_phylos <- ape::read.nexus(file = system.file(
-  "inst/extdata/Upham_dna_posterior_100.nex",
+  "extdata/Upham_dna_posterior_100.nex",
   package = "DAISIEprepExtra"
 ))
 complete_phylos <- ape::read.nexus(file = system.file(
-  "inst/extdata/Upham_complete_posterior_100.nex",
+  "extdata/Upham_complete_posterior_100.nex",
   package = "DAISIEprepExtra"
 ))
 
