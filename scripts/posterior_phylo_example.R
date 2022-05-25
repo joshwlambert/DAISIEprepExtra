@@ -81,7 +81,6 @@ daisie_datatable_complete <- lapply(
   island_age = 88
 )
 
-
 # convert to daisie data list
 daisie_data_list_dna <- lapply(
   daisie_datatable_dna,
