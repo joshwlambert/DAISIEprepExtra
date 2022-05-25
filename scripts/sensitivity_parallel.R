@@ -20,10 +20,7 @@ parameter_space <- rbind(
 )
 
 # load madagascar mammals species data table
-load(file = system.file(
-  "data/madagascar_mammals.rda",
-  package = "DAISIEprepExtra"
-))
+data("madagascar_mammals", package = "DAISIEprepExtra")
 
 # load the DNA only and complete posterior distribution of trees
 dna_phylos <- ape::read.nexus(file = system.file(
