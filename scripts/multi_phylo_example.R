@@ -1,26 +1,8 @@
 # load Hawaiian asteraceae species data table
-hawaii_asters <- read.csv(file = system.file(
-  "inst/extdata/hawaii_asteraceae_species.csv",
+load(file = system.file(
+  "data/hawaii_asters.rda",
   package = "DAISIEprepExtra"
 ))
-
-aster_tip_labels <- paste(
-  hawaii_asters$Genus,
-  hawaii_asters$Species,
-  sep = "_"
-)
-
-aster_endemicity_status <- c()
-for (i in seq_len(nrow(hawaii_asters))) {
-  aster_endemicity_status[i] <- DAISIEprep::translate_status(
-    hawaii_asters$Endemic[i]
-  )
-}
-
-hawaii_asters <- data.frame(
-  tip_labels = aster_tip_labels,
-  tip_endemicity_status =aster_endemicity_status
-)
 
 # load the DNA only and complete trees
 hesperomannia <- ape::read.nexus(file = system.file(
