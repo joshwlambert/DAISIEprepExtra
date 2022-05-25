@@ -17,43 +17,43 @@ parameter_space <- rbind(
 data("madagascar_mammals", package = "DAISIEprepExtra")
 
 # load the DNA only and complete posterior distribution of trees
-dna_phylos <- ape::read.nexus(file = system.file(
+phylos_dna <- ape::read.nexus(file = system.file(
   "inst/extdata/Upham_dna_posterior_100.nex",
   package = "DAISIEprepExtra"
 ))
-complete_phylos <- ape::read.nexus(file = system.file(
+phylos_complete <- ape::read.nexus(file = system.file(
   "inst/extdata/Upham_complete_posterior_100.nex",
   package = "DAISIEprepExtra"
 ))
 
 # convert trees to phylo4 objects
-dna_phylos <- lapply(dna_phylos, phylobase::phylo4)
-complete_phylos <- lapply(complete_phylos, phylobase::phylo4)
+phylos_dna <- lapply(phylos_dna, phylobase::phylo4)
+phylos_complete <- lapply(phylos_complete, phylobase::phylo4)
 
 # create endemicity status data frame
 endemicity_status_dna <- lapply(
-  dna_phylos,
+  phylos_dna,
   DAISIEprep::create_endemicity_status,
   island_species = madagascar_mammals
 )
 
 endemicity_status_complete <- lapply(
-  complete_phylos,
+  phylos_complete,
   DAISIEprep::create_endemicity_status,
   island_species = madagascar_mammals
 )
 
 # combine tree and endemicity status
-dna_multi_phylods <- list()
-complete_multi_phylods <- list()
+multi_phylods_dna <- list()
+multi_phylods_complete <- list()
 for (i in seq_along(dna_phylos)) {
-  message("Converting phylo ", i, " of ", length(dna_phylos))
-  dna_multi_phylods[[i]] <- phylobase::phylo4d(
-    dna_phylos[[i]],
+  message("Converting phylo ", i, " of ", length(phylos_dna))
+  multi_phylods_dna[[i]] <- phylobase::phylo4d(
+    phylos_dna[[i]],
     endemicity_status_dna[[i]]
   )
-  complete_multi_phylods[[i]] <- phylobase::phylo4d(
-    complete_phylos[[i]],
+  multi_phylods_complete[[i]] <- phylobase::phylo4d(
+    phylos_complete[[i]],
     endemicity_status_complete[[i]]
   )
 }
@@ -64,40 +64,41 @@ for (i in seq_len(nrow(parameter_space))) {
   message("Parameter set: ", i)
 
   if (parameter_space$extraction_method[i] == "asr") {
-    dna_multi_phylods <- lapply(
-      dna_multi_phylods,
+    multi_phylods_dna <- lapply(
+      multi_phylods_dna,
       DAISIEprep::add_asr_node_states,
       asr_method = parameter_space$asr_method[i]
     )
 
-    complete_multi_phylods <- lapply(
-      complete_multi_phylods,
+    multi_phylods_complete <- lapply(
+      multi_phylods_complete,
       DAISIEprep::add_asr_node_states,
       asr_method = parameter_space$asr_method[i]
     )
   }
 
   # extract island community
-  dna_multi_island_tbl <- DAISIEprep::multi_extract_island_species(
-    multi_phylod = dna_multi_phylods,
+  multi_island_tbl_dna <- DAISIEprep::multi_extract_island_species(
+    multi_phylod = multi_phylods_dna,
     extraction_method = parameter_space$extraction_method[i],
     verbose = TRUE
   )
-  complete_multi_island_tbl <- DAISIEprep::multi_extract_island_species(
-    multi_phylod = complete_multi_phylods,
+
+  multi_island_tbl_complete <- DAISIEprep::multi_extract_island_species(
+    multi_phylod = multi_phylods_complete,
     extraction_method = parameter_space$extraction_method[i],
     verbose = TRUE
   )
 
   # convert to daisie data table
   daisie_datatable_dna <- lapply(
-    dna_multi_island_tbl,
+    multi_island_tbl_dna,
     DAISIEprep::as_daisie_datatable,
     island_age = 88
   )
 
   daisie_datatable_complete <- lapply(
-    complete_multi_island_tbl,
+    multi_island_tbl_complete,
     DAISIEprep::as_daisie_datatable,
     island_age = 88
   )
@@ -120,7 +121,7 @@ for (i in seq_len(nrow(parameter_space))) {
   # fit DAISIE model to data
   ml_dna <- list()
   ml_complete <- list()
-  for (j in seq_along(dna_phylos)) {
+  for (j in seq_along(phylos_dna)) {
     message(
       "Fitting DAISIE model to data set ",
       j,
