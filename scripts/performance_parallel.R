@@ -89,7 +89,7 @@ for (i in seq_len(nrow(parameter_space))) {
     median_times_min[j] <- median(min_time$time)
     median_times_asr[j] <- median(asr_time$time)
   }
-  times_list[[i]] <- list(min = median_times_min, asr = median_times_asr)
+  times_list[[i]] <- list(median_times_min, median_times_asr)
 }
 
 # convert list to data frame
