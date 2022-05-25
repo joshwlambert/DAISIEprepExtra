@@ -11,14 +11,18 @@ set.seed(
   sample.kind = "Rejection"
 )
 
+replicates <- 100
+
 times_list <- list()
 for (i in seq_len(nrow(parameter_space))) {
 
-  message("Parameter set: ", i)
+  message("Parameter set: ", parameter_index)
 
   median_times_min <- c()
   median_times_asr <- c()
-  for (j in 1:10) {
+  for (j in seq_len(replicates)) {
+
+    message("Replicate: ", j)
 
     # simulate phylogeny
     phylo <- ape::rcoal(n = parameter_space$tree_size[i])
@@ -107,3 +111,13 @@ times <- unlist(lapply(times_list, function(x) {lapply(x, FUN =  median)}))
 times <- times / 1e9
 
 results$median_time <- times
+
+output_name <- "performance.rds"
+
+output_folder <- file.path("results")
+
+output_file_path <- file.path(output_folder, output_name)
+
+saveRDS(object = results, file = output_file_path)
+
+message("Finished")

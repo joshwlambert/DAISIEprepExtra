@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --time=4-23:00:00
+#SBATCH --time=1-23:00:00
 #SBATCH --partition=gelifes
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --job-name=performance
-#SBATCH --output=/data/p287218/DAISIEmainland/logs/performance.log
+#SBATCH --output=/data/p287218/DAISIEprepExtra/logs/performance.log
 #SBATCH --mem=5GB
 
 ml R
