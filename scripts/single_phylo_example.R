@@ -1,8 +1,5 @@
 # load madagascar mammals species data table
-load(file = system.file(
-  "data/madagascar_mammals.rda",
-  package = "DAISIEprepExtra"
-))
+data("madagascar_mammals", package = "DAISIEprepExtra")
 
 # load the DNA only and complete trees
 dna_phylo <- ape::read.nexus(file = system.file(
@@ -48,21 +45,11 @@ daisie_data_list <- DAISIEprep::create_daisie_data(
 
 ml <- DAISIE::DAISIE_ML_CS(
   datalist = daisie_data_list,
-  initparsopt = c(1, 1, 100, 0.1, 1),
+  initparsopt = c(1, 1, 200, 0.1, 1),
   idparsopt = 1:5,
   parsfix = NULL,
   idparsfix = NULL,
   ddmodel = 11,
   jitter = 1e-5
-)
-
-simplex <- DAISIE::DAISIE_ML_CS(
-  datalist = daisie_data_list,
-  initparsopt = c(1, 1, 100, 0.1, 1),
-  idparsopt = 1:5,
-  parsfix = NULL,
-  idparsfix = NULL,
-  ddmodel = 11,
-  optimmethod = "simplex"
 )
 

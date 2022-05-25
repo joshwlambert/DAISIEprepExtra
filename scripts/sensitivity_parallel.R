@@ -107,7 +107,7 @@ for (i in seq_len(nrow(parameter_space))) {
 
   ml_dna <- DAISIE::DAISIE_ML_CS(
     datalist = daisie_data_list_dna,
-    initparsopt = c(1, 1, 100, 0.1, 1),
+    initparsopt = c(1, 1, 200, 0.1, 1),
     idparsopt = 1:5,
     parsfix = NULL,
     idparsfix = NULL,
@@ -117,7 +117,7 @@ for (i in seq_len(nrow(parameter_space))) {
 
   ml_complete <- DAISIE::DAISIE_ML_CS(
     datalist = daisie_data_list_complete,
-    initparsopt = c(1, 1, 100, 0.1, 1),
+    initparsopt = c(1, 1, 200, 0.1, 1),
     idparsopt = 1:5,
     parsfix = NULL,
     idparsfix = NULL,
