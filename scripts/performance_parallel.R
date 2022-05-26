@@ -17,17 +17,17 @@ set.seed(
   sample.kind = "Rejection"
 )
 
-replicates <- 100
+replicates <- 10
 
 times_list <- list()
 
 message("Parameter set: ", parameter_index)
 
-median_times_min <- c()
-median_times_asr <- c()
-for (j in seq_len(replicates)) {
+mean_times_min <- c()
+mean_times_asr <- c()
+for (i in seq_len(replicates)) {
 
-  message("Replicate: ", j, " of ", replicates)
+  message("Replicate: ", i, " of ", replicates)
 
   # simulate phylogeny
   phylo <- ape::rcoal(n = parameter_space$tree_size[parameter_index])
@@ -75,46 +75,32 @@ for (j in seq_len(replicates)) {
 
 
   # run extraction
-  min_time <- microbenchmark::microbenchmark(
+  min_time <- system.time(for (n in 1:3) {
     island_tbl_min <- DAISIEprep::extract_island_species(
       phylod = phylod,
       extraction_method = "min",
       island_tbl = NULL,
       include_not_present = FALSE
-    ),
-    times = 10L
-  )
+    )
+  })
 
-  asr_time <- microbenchmark::microbenchmark(
+  asr_time <- system.time(for (n in 1:3) {
     island_tbl_asr <- DAISIEprep::extract_island_species(
       phylod = phylod,
       extraction_method = "asr",
       island_tbl = NULL,
       include_not_present = FALSE
-    ),
-    times = 10L
-  )
+    )
+  })
 
-  median_times_min[j] <- median(min_time$time)
-  median_times_asr[j] <- median(asr_time$time)
+  mean_times_min[i] <- min_time["elapsed"] / 3
+  mean_times_asr[i] <- asr_time["elapsed"] / 3
 }
-times_list[[parameter_index]] <- list(min = median_times_min, asr = median_times_asr)
-
-# convert list to data frame
-results <- data.frame(
-  parameter_space = rep(1:nrow(parameter_space), each = 2),
-  tree_size = rep(parameter_space$tree_size, each = 2),
-  prob_on_island = rep(parameter_space$prob_on_island, each = 2),
-  prob_endemic = rep(parameter_space$prob_endemic, each = 2),
-  extraction_method = rep(c("min", "asr"), nrow(parameter_space))
+times_list <- list(
+  min = mean_times_min,
+  asr = mean_times_asr,
+  parameter_index = parameter_index
 )
-
-times <- unlist(lapply(times_list, function(x) {lapply(x, FUN =  median)}))
-
-#convert from nanoseconds to seconds
-times <- times / 1e9
-
-results$median_time <- times
 
 output_name <- paste0("performance_param_set_", parameter_index, ".rds")
 
@@ -122,6 +108,6 @@ output_folder <- file.path("results")
 
 output_file_path <- file.path(output_folder, output_name)
 
-saveRDS(object = results, file = output_file_path)
+saveRDS(object = times_list, file = output_file_path)
 
 message("Finished")

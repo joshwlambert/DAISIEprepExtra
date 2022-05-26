@@ -55,67 +55,62 @@ multi_phylods_complete <- lapply(
   asr_method = "parsimony"
 )
 
-times_list <- list()
-median_times_min_dna <- c()
-median_times_min_complete <- c()
-median_times_asr_dna <- c()
-median_times_asr_complete <- c()
+mean_times_min_dna <- c()
+mean_times_min_complete <- c()
+mean_times_asr_dna <- c()
+mean_times_asr_complete <- c()
 for (i in seq_along(multi_phylods_dna)) {
 
   message("Extracting ", i, " of ", length(multi_phylods_dna))
 
   # run extraction
-  min_time_dna <- microbenchmark::microbenchmark(
+  min_time_dna <- system.time(for (n in 1:3) {
     island_tbl_min <- DAISIEprep::extract_island_species(
       phylod = multi_phylods_dna[[i]],
       extraction_method = "min",
       island_tbl = NULL,
       include_not_present = FALSE
-    ),
-    times = 10L
-  )
+    )
+  })
 
-  min_time_dna <- microbenchmark::microbenchmark(
+  min_time_complete <- system.time(for (n in 1:3) {
     island_tbl_min <- DAISIEprep::extract_island_species(
       phylod = multi_phylods_complete[[i]],
       extraction_method = "min",
       island_tbl = NULL,
       include_not_present = FALSE
-    ),
-    times = 10L
-  )
+    )
+  })
 
-  asr_time_dna <- microbenchmark::microbenchmark(
+  asr_time_dna <- system.time(for (n in 1:3) {
     island_tbl_asr <- DAISIEprep::extract_island_species(
       phylod = multi_phylods_dna[[i]],
       extraction_method = "asr",
       island_tbl = NULL,
       include_not_present = FALSE
-    ),
-    times = 10L
-  )
+    )
+  })
 
-  asr_time_complete <- microbenchmark::microbenchmark(
+  asr_time_complete <- system.time(for (n in 1:3) {
     island_tbl_asr <- DAISIEprep::extract_island_species(
       phylod = multi_phylods_complete[[i]],
       extraction_method = "asr",
       island_tbl = NULL,
       include_not_present = FALSE
-    ),
-    times = 10L
-  )
+    )
+  })
 
-  median_times_min_dna[i] <- median(min_time_dna$time)
-  median_times_min_complete[i] <- median(min_time_complete$time)
-  median_times_asr_dna[i] <- median(asr_time_dna$time)
-  median_times_asr_complete[i] <- median(asr_time_complete$time)
+  mean_times_min_dna[i] <- min_time_dna["elapsed"] / 3
+  mean_times_min_complete[i] <- min_time_complete["elapsed"] / 3
+  mean_times_asr_dna[i] <- asr_time_dna["elapsed"] / 3
+  mean_times_asr_complete[i] <- asr_time_complete["elapsed"] / 3
 }
 
 results <- data.frame(
-  median_times_min_dna = median_times_min_dna,
-  median_times_min_complete = median_times_min_complete,
-  median_times_asr_dna = median_times_asr_dna,
-  median_times_asr_complete = median_times_asr_complete
+  mean_times_min_dna = mean_times_min_dna,
+  mean_times_min_complete = mean_times_min_complete,
+  mean_times_asr_dna = mean_times_asr_dna,
+  mean_times_asr_complete = mean_times_asr_complete
 )
 
 output_name <- "performance_empirical.rds"

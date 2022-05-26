@@ -1,3 +1,6 @@
+# Performance analysis of the extract_island_species() function using the
+# methods explained here: https://radfordneal.wordpress.com/2014/02/02/inaccurate-results-from-microbenchmark/
+
 parameter_space <- expand.grid(
   tree_size = c(10, 50, 100, 500, 1000, 5000, 10000),
   prob_on_island = c(0.2, 0.5),
@@ -11,15 +14,15 @@ set.seed(
   sample.kind = "Rejection"
 )
 
-replicates <- 100
+replicates <- 10
 
 times_list <- list()
 for (i in seq_len(nrow(parameter_space))) {
 
   message("Parameter set: ", i, " of ", nrow(parameter_space))
 
-  median_times_min <- c()
-  median_times_asr <- c()
+  mean_times_min <- c()
+  mean_times_asr <- c()
   for (j in seq_len(replicates)) {
 
     message("Replicate: ", j, " of ", replicates)
@@ -68,32 +71,29 @@ for (i in seq_len(nrow(parameter_space))) {
       earliest_col = FALSE
     )
 
-
     # run extraction
-    min_time <- microbenchmark::microbenchmark(
+    min_time <- system.time(for (n in 1:3) {
       island_tbl_min <- DAISIEprep::extract_island_species(
         phylod = phylod,
         extraction_method = "min",
         island_tbl = NULL,
         include_not_present = FALSE
-      ),
-      times = 10L
-    )
+      )
+    })
 
-    asr_time <- microbenchmark::microbenchmark(
+    asr_time <- system.time(for (n in 1:3) {
       island_tbl_asr <- DAISIEprep::extract_island_species(
         phylod = phylod,
         extraction_method = "asr",
         island_tbl = NULL,
         include_not_present = FALSE
-      ),
-      times = 10L
-    )
+      )
+    })
 
-    median_times_min[j] <- median(min_time$time)
-    median_times_asr[j] <- median(asr_time$time)
+    mean_times_min[j] <- min_time["elapsed"] / 3
+    mean_times_asr[j] <- asr_time["elapsed"] / 3
   }
-  times_list[[i]] <- list(min = median_times_min, asr = median_times_asr)
+  times_list[[i]] <- list(min = mean_times_min, asr = mean_times_asr)
 }
 
 # convert list to data frame
@@ -110,7 +110,7 @@ times <- unlist(lapply(times_list, function(x) {lapply(x, FUN =  median)}))
 #convert from nanoseconds to seconds
 times <- times / 1e9
 
-results$median_time <- times
+results$mean_time <- times
 
 output_name <- "performance.rds"
 

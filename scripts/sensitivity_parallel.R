@@ -124,10 +124,14 @@ for (i in seq_len(nrow(parameter_space))) {
     ddmodel = 11,
     jitter = 1e-5
   )
-  ml_list[[i]] <- list(dna = ml_dna, complete = ml_complete)
+  ml_list[[i]] <- list(
+    dna = ml_dna,
+    complete = ml_complete,
+    parameters = parameter_space[i, ]
+  )
 }
 
-output_name <- paste0("sensitivity_tree_index", tree_index, ".rds")
+output_name <- paste0("sensitivity_tree_index_", tree_index, ".rds")
 
 output_folder <- file.path("results")
 
