@@ -26,7 +26,8 @@ Imports:
     sf,
     TreeSim,
     phylobase,
-    ggtree
+    ggtree,
+    tibble
 Remotes:
     joshwlambert/DAISIEprep@develop,
     rsetienne/DAISIE
