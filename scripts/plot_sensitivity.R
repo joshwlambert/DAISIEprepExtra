@@ -13,7 +13,6 @@ if (length(sensitivity_data_files) == 0) {
   sensitivity_data <- lapply(file_paths, readRDS)
 }
 
-
 dna <- lapply(sensitivity_data, function(x) {
   lapply(x, "[[", 1)
 })
