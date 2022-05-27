@@ -2,7 +2,7 @@
 performance_data_files <- list.files(
   path = system.file("performance_data", package = "DAISIEprepExtra")
 )
-if (length(sensitivity_data_files) == 0) {
+if (length(performance_data_files) == 0) {
   stop("No results are in the results directory")
 } else {
   file_paths <- as.list(paste0(
@@ -10,7 +10,13 @@ if (length(sensitivity_data_files) == 0) {
     "/",
     performance_data_files
   ))
+
+  empirical_file_path <- grep(pattern = "empirical", x = file_paths)
+  performance_empirical <- file_paths[[empirical_file_path]]
+  file_paths <- file_paths[-empirical_file_path]
+
   performance_data <- lapply(file_paths, readRDS)
+  performance_empirical <- readRDS(performance_empirical)
 }
 
 min <- lapply(performance_data, "[[", "min")
@@ -33,7 +39,7 @@ tree_size <- sapply(parameter, "[[", "tree_size")
 prob_on_island <- sapply(parameter, "[[", "prob_on_island")
 prob_endemic <- sapply(parameter, "[[", "prob_endemic")
 
-results <- data.frame(
+results <- tibble::tibble(
   tree_size = rep(tree_size, each = 10),
   prob_on_island = rep(prob_on_island, each = 10),
   prob_endemic = rep(prob_endemic, each = 10),
@@ -43,32 +49,51 @@ results <- data.frame(
 
 results <- tidyr::pivot_longer(
   data = results,
-  names_to = "parameter",
+  names_to = "extraction",
   time_min:time_asr,
-  values_to = "rates"
+  values_to = "time"
 )
 
-grouped_results <- dplyr::group_by(results, tree_size)
-mean_results <- dplyr::summarise(grouped_results, Mean = mean(rates))
-sd_results <- dplyr::summarise(grouped_results, SD = sd(rates))
+grouped_results <- dplyr::group_by(results, tree_size, prob_on_island)
+mean_results <- dplyr::summarise(
+  grouped_results,
+  mean = mean(time),
+  .groups = "drop"
+)
+sd_results <- dplyr::summarise(
+  grouped_results,
+  sd = sd(time),
+  .groups = "drop"
+)
 
-summary_results <- dplyr::right_join(mean_results, sd_results)
+summary_results <- dplyr::right_join(
+  mean_results,
+  sd_results,
+  by = c("tree_size", "prob_on_island")
+)
 
-ggplot2::ggplot(data = summary_results) +
+summary_results$prob_on_island <- as.factor(summary_results$prob_on_island)
+
+performance_prob_on_island <- ggplot2::ggplot(data = summary_results) +
   ggplot2::geom_point(
     mapping = ggplot2::aes(
       x = tree_size,
-      y = Mean
-      )
+      y = mean,
+      colour = prob_on_island
+    ),
+    position = ggplot2::position_dodge(width = 0.5),
+    size = 2,
   ) +
   ggplot2::geom_errorbar(
     mapping = ggplot2::aes(
       x = tree_size,
-      y = Mean,
-      ymin = Mean-SD,
-      ymax = Mean+SD
+      y = mean,
+      ymin = pmax(0.01, mean-sd),
+      ymax = mean+sd,
+      colour = prob_on_island
     ),
-    width = 0.2
+    position = ggplot2::position_dodge(width = 0.5),
+    width = 0.3
   ) +
   ggplot2::theme_classic() +
   ggplot2::scale_x_continuous(
@@ -81,28 +106,83 @@ ggplot2::ggplot(data = summary_results) +
     trans = "log",
     breaks = scales::breaks_log(),
     labels = scales::comma_format(accuracy = 0.1)
-  )
+  ) +
+  ggplot2::scale_colour_discrete(
+    name = "Probability on the island",
+    type = c("#046C9A", "#D69C4E", "#ECCBAE", "#ABDDDE", "#000000"))
 
 
+grouped_results <- dplyr::group_by(results, tree_size, prob_endemic)
+mean_results <- dplyr::summarise(
+  grouped_results,
+  mean = mean(time),
+  .groups = "drop"
+)
+sd_results <- dplyr::summarise(
+  grouped_results,
+  sd = sd(time),
+  .groups = "drop"
+)
 
-#ggplot2::geom_point(
-#    mapping = ggplot2::aes(
-#      x = tree_size,
-#      y = median_time,
-#      colour = extraction_method,
-#      shape = as.factor(prob_on_island),
-#      size = as.factor(prob_endemic)),
-#    alpha = 0.75) +
+summary_results <- dplyr::right_join(
+  mean_results,
+  sd_results,
+  by = c("tree_size", "prob_endemic")
+)
 
-#ggplot2::guides(colour = ggplot2::guide_legend(title = "Extraction method"),
-#                  shape = ggplot2::guide_legend(title = "Probability on island"),
-#                  size = ggplot2::guide_legend(title = "Probability endemic")) +
+summary_results$prob_endemic <- as.factor(summary_results$prob_endemic)
 
+performance_prob_endemic <- ggplot2::ggplot(data = summary_results) +
+  ggplot2::geom_point(
+    mapping = ggplot2::aes(
+      x = tree_size,
+      y = mean,
+      colour = prob_endemic
+    ),
+    position = ggplot2::position_dodge(width = 0.5),
+    size = 2,
+  ) +
+  ggplot2::geom_errorbar(
+    mapping = ggplot2::aes(
+      x = tree_size,
+      y = mean,
+      ymin = pmax(0, mean-sd),
+      ymax = mean+sd,
+      colour = prob_endemic
+    ),
+    position = ggplot2::position_dodge(width = 0.5),
+    width = 0.3
+  ) +
+  ggplot2::theme_classic() +
+  ggplot2::scale_x_continuous(
+    name = "Tree Size (num. tips)",
+    trans = "log",
+    breaks = scales::breaks_log()
+  ) +
+  ggplot2::scale_y_continuous(
+    name = "Mean run time (seconds)",
+    trans = "log",
+    breaks = scales::breaks_log(),
+    labels = scales::comma_format(accuracy = 0.1)
+  ) +
+  ggplot2::scale_colour_discrete(
+    name = "Probability endemic",
+    type = c("#D8B70A", "#02401B"))
 
 
 ggplot2::ggsave(
-  plot = performance,
-  filename = file.path("plots", "performance.png"),
+  plot = performance_prob_on_island,
+  filename = file.path("plots", "performance_prob_on_island.png"),
+  device = "png",
+  width = 150,
+  height = 100,
+  units = "mm",
+  dpi = 600
+)
+
+ggplot2::ggsave(
+  plot = performance_prob_endemic,
+  filename = file.path("plots", "performance_prob_endemic.png"),
   device = "png",
   width = 150,
   height = 100,
