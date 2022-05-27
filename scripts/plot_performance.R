@@ -19,6 +19,71 @@ if (length(performance_data_files) == 0) {
   performance_empirical <- readRDS(performance_empirical)
 }
 
+# tidy empirical data
+
+mean_times_min_dna <- performance_empirical$mean_times_min_dna
+mean_times_min_complete <- performance_empirical$mean_times_min_complete
+mean_times_asr_dna <- performance_empirical$mean_times_asr_dna
+mean_times_asr_complete <- performance_empirical$mean_times_asr_complete
+
+extraction_method <- c(
+  rep("min", length(mean_times_min_dna)),
+  rep("min", length(mean_times_min_complete)),
+  rep("asr", length(mean_times_asr_dna)),
+  rep("asr", length(mean_times_asr_complete))
+)
+
+tree_type <- c(
+  rep("dna", length(mean_times_min_dna)),
+  rep("complete", length(mean_times_min_complete)),
+  rep("dna", length(mean_times_asr_dna)),
+  rep("complete", length(mean_times_asr_complete))
+)
+
+tree_size <- c(
+  rep(4099, length(mean_times_min_dna)),
+  rep(5911, length(mean_times_min_complete)),
+  rep(4099, length(mean_times_asr_dna)),
+  rep(5911, length(mean_times_asr_complete))
+)
+
+mean_times <- c(
+  mean_times_min_dna,
+  mean_times_min_complete,
+  mean_times_asr_dna,
+  mean_times_asr_complete
+)
+
+empirical_results <- tibble::tibble(
+  mean_times = mean_times,
+  extraction_method = extraction_method,
+  tree_type = tree_type,
+  tree_size = tree_size
+)
+
+grouped_empirical_results <- dplyr::group_by(
+  empirical_results,
+  tree_size,
+  tree_type
+)
+
+mean_empirical_results <- dplyr::summarise(
+  grouped_empirical_results,
+  mean = mean(mean_times),
+  .groups = "drop"
+)
+sd_empirical_results <- dplyr::summarise(
+  grouped_empirical_results,
+  sd = sd(mean_times),
+  .groups = "drop"
+)
+
+summary_empirical_results <- dplyr::right_join(
+  mean_empirical_results,
+  sd_empirical_results,
+  by = c("tree_size", "tree_type")
+)
+
 min <- lapply(performance_data, "[[", "min")
 
 asr <- lapply(performance_data, "[[", "asr")
@@ -111,6 +176,27 @@ performance_prob_on_island <- ggplot2::ggplot(data = summary_results) +
     name = "Probability on the island",
     type = c("#046C9A", "#D69C4E", "#ECCBAE", "#ABDDDE", "#000000"))
 
+
+performance_prob_on_island <- performance_prob_on_island +
+  ggplot2::geom_point(
+    data = summary_empirical_results,
+    mapping = ggplot2::aes(
+      x = tree_size,
+      y = mean,
+      colour = tree_type),
+    size = 2
+  ) +
+  ggplot2::geom_errorbar(
+    data = summary_empirical_results,
+    mapping = ggplot2::aes(
+      x = tree_size,
+      y = mean,
+      ymin = mean-sd,
+      ymax = mean+sd,
+      colour = tree_type
+    ),
+    width = 0.3
+  )
 
 grouped_results <- dplyr::group_by(results, tree_size, prob_endemic)
 mean_results <- dplyr::summarise(
