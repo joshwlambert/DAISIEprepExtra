@@ -4,8 +4,11 @@ args <- as.numeric(args)
 
 parameter_index <- args[1]
 
+tree_size <- exp(seq(from = log(10), to = log(10000), length.out = 15))
+tree_size <- round(tree_size)
+
 parameter_space <- expand.grid(
-  tree_size = c(10, 50, 100, 500, 1000, 5000, 10000),
+  tree_size = tree_size,
   prob_on_island = c(0.2, 0.5),
   prob_endemic = c(0.2, 0.8)
 )
@@ -99,7 +102,7 @@ for (i in seq_len(replicates)) {
 times_list <- list(
   min = mean_times_min,
   asr = mean_times_asr,
-  parameter_index = parameter_index
+  parameters = parameter_space[parameter_index, ]
 )
 
 output_name <- paste0("performance_param_set_", parameter_index, ".rds")

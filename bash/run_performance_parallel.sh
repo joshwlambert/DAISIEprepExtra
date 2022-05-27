@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --job-name=performance
 #SBATCH --output=/data/p287218/DAISIEprepExtra/logs/performance%a.log
-#SBATCH --array=1-28
+#SBATCH --array=1-60
 #SBATCH --mem=5GB
 
 ml R

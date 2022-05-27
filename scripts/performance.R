@@ -1,8 +1,11 @@
 # Performance analysis of the extract_island_species() function using the
 # methods explained here: https://radfordneal.wordpress.com/2014/02/02/inaccurate-results-from-microbenchmark/
 
+tree_size <- exp(seq(from = log(10), to = log(10000), length.out = 15))
+tree_size <- round(tree_size)
+
 parameter_space <- expand.grid(
-  tree_size = c(10, 50, 100, 500, 1000, 5000, 10000),
+  tree_size = tree_size,
   prob_on_island = c(0.2, 0.5),
   prob_endemic = c(0.2, 0.8)
 )
