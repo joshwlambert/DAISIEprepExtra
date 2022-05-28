@@ -31,9 +31,15 @@ world <- ne_countries(scale = "large", returnclass = "sf")
 
 hawaii_map <- ggplot(data = world) +
   geom_sf(color = "gray50", fill = "gray50") +
-  coord_sf(xlim = c(-164, -151), ylim = c(19, 22), expand = TRUE) +
+  coord_sf(xlim = c(-162.5, -152.4), ylim = c(18.5, 22.5), expand = TRUE) +
   theme_void() +
-  theme(plot.margin = margin(0, 0, 0, 0))
+  theme(plot.margin = margin(0, 0, 0, 0),
+        panel.border = ggplot2::element_rect(
+          fill = NA,
+          colour = "black",
+          size = 2
+        )
+  )
 
 set.seed(2)
 phylo <- TreeSim::sim.bd.taxa(n = 25, numbsim = 1, lambda = 1, mu = 0)[[1]]
@@ -75,6 +81,8 @@ global_phylo <- ggtree(
     alpha = 0.3
   ) +
   ggplot2::scale_shape_manual(values = c(15, 16, 20)) +
+  ggplot2::scale_x_continuous(name = "Time before present (Myr)") +
+  ggtree::theme_tree2() +
   theme(
     plot.margin = margin(0, 0, 0, 0),
     legend.position = "none"
@@ -85,37 +93,37 @@ global <- cowplot::ggdraw(global_phylo) +
 
 horizontal <- data.frame(
   species_id = as.factor(c(1, 2, 4, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)),
-  species_type = c("Non-endemic", rep("Endemic", 13)),
-  col_t = c(0.29, 1.37, 0.54, NA, NA, NA, 1.85, NA, NA, NA, NA, NA, NA, NA),
-  spec_origin_t = c(0.29, 1.37, 0.54, 0.21, 0.21, 1.16, 1.85, 0.76, 1.16, 0.30,
-                    0.76, 0.19, 0.3, 0.19),
-  spec_ex_t = c(0, 0, 0.21, 0, 0, 0, 1.16, 0, 0.76, 0, 0.3, 0, 0.19, 0)
+  species_type = c(rep("Endemic", 10), "Non-endemic", rep("Endemic", 3)),
+  col_t = c(NA, 1.85, NA, NA, NA, NA, NA, NA, NA, 1.37, 0.29, NA, 0.54, NA),
+  spec_origin_t = c(1.16, 1.85, 1.16, 0.76, 0.30, 0.76, 0.19, 0.3, 0.19, 1.37,
+                    0.29, 0.21, 0.54, 0.21),
+  spec_ex_t = c(0, 1.16, 0.76, 0, 0, 0.3, 0, 0.19, 0, 0, 0, 0, 0.21, 0)
 )
 
 vertical <- data.frame(
   species_type = c(rep("Endemic", 5)),
   x = c(0.21, 1.16, 0.76, 0.3, 0.19),
-  y = as.factor(c(3, 6, 8, 10, 12)),
-  yend = as.factor(c(5, 9, 11, 13, 14))
+  y = as.factor(c(12, 1, 3, 5, 7)),
+  yend = as.factor(c(14, 4, 6, 8, 9))
 )
 
 violin <- data.frame(
   col_t = c(
-    rnorm(n = 1000, mean = 0.29, sd = 0.01),
+    rnorm(n = 1000, mean = 1.85, sd = 0.016),
     rnorm(n = 1000, mean = 1.37, sd = 0.02),
-    rnorm(n = 1000, mean = 0.54, sd = 0.02),
-    rnorm(n = 1000, mean = 1.85, sd = 0.01)
+    rnorm(n = 1000, mean = 0.29, sd = 0.02),
+    rnorm(n = 1000, mean = 0.54, sd = 0.014)
   ),
   species_id = c(
-    rep(1, 1000),
     rep(2, 1000),
-    rep(4, 1000),
-    rep(7, 1000)
+    rep(10, 1000),
+    rep(11, 1000),
+    rep(13, 1000)
   ),
   species_type = c(
+    rep("Endemic", 1000),
+    rep("Endemic", 1000),
     rep("Non-endemic", 1000),
-    rep("Endemic", 1000),
-    rep("Endemic", 1000),
     rep("Endemic", 1000)
   )
 )
@@ -152,7 +160,8 @@ island_phylo <- ggplot2::ggplot(data = horizontal) +
     data = violin,
     ggplot2::aes(x = col_t, y = as.factor(species_id), colour = species_type),
     adjust = 3,
-    alpha = 0.1
+    alpha = 0.1,
+    width = 1.5
   ) +
   ggplot2::scale_shape_manual(values = c(16, 15)) +
   ggplot2::scale_colour_manual(values = c("#FF7F50", "#008080")) +
@@ -175,13 +184,14 @@ legend <- get_legend(island_phylo)
 island_phylo <- island_phylo + theme(legend.position = "none")
 
 island <- cowplot::ggdraw(island_phylo) +
-  cowplot::draw_plot(hawaii_map, 0, 0.6, 0.4, 0.4)
+  cowplot::draw_plot(hawaii_map, 0.1, 0.65, 0.4, 0.4)
 
 prow <- plot_grid(
   global + theme(legend.position="none"),
   island + theme(legend.position="none"),
   align = 'vh',
   labels = "AUTO",
+  label_x = -0.01,
   hjust = -1,
   nrow = 1,
   rel_heights = c(1, 1)
