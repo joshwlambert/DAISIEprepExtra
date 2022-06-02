@@ -6,12 +6,12 @@ data("hawaii_asters")
 
 # load the DNA only and complete trees
 hesperomannia <- ape::read.nexus(file = system.file(
-  "inst/extdata/Keeley_2021.tre",
+  "extdata/Keeley_2021.tre",
   package = "DAISIEprepExtra"
 ))
 
 silversword <- ape::read.nexus(file = system.file(
-  "inst/extdata/Landis_2018_g4_mcc.tre",
+  "extdata/Landis_2018_g4_mcc.tre",
   package = "DAISIEprepExtra"
 ))
 
@@ -48,20 +48,20 @@ bidens <- ape::read.nexus(file = system.file(
 ))
 
 # deal with unnamed species
-# there is one unnamed species from the tree on Hawaii this is renamed
-bidens$tip.label[grep(pattern = "BidspnovLF12810G90", x = bidens$tip.label)] <-
-  "Bidens_spnovoahu"
-
+# there is one unnamed species from the tree on Hawaii (BidspnovLF12810G90)
 # there are another six species that are that are unnamed and are not on Hawaii
-# these can temporary, fictional names for the purposes of naming standardisation
-# but will not be included in the island data set once extracted
+# these can be given temporary, fictional names for the purposes of naming
+# standardisation but will not be included in the island data set once extracted
+# name is Bid- rather than Bidens_- because it will be changed below with the
+# other tips in the tree
 bidens$tip.label[grep(pattern = "Bidsp", x = bidens$tip.label)] <- c(
-  "Bidens_butaud",
-  "Bidens_starbuckis_a",
-  "Bidens_starbuckis_b",
-  "Bidens_taputuarai",
-  "Bidens_spa",
-  "Bidens_spb"
+  "Bidbutaud",
+  "Bidstarbuckis_a",
+  "Bidstarbuckis_b",
+  "Bidtaputuarai",
+  "Bidspa",
+  "Bidspb",
+  "Bidspnovoahu"
 )
 
 # rename tip labels to conform to DAISIEprep
@@ -130,17 +130,13 @@ bidens$tip.label <- species_name
 # in the tree at random and drop the remaining samples (tips). This also stops
 # species richness being inflated, as with the silverswords above, by only having
 # one tip in the tree per species
-split_names <- strsplit(x = silversword$tip.label, split = "_")
-genus_names <- sapply(split_names, "[[", 1)
-species_names <- sapply(split_names, "[[", 2)
-genus_species_names <- paste(genus_names, species_names, sep = "_")
-island_multi_tip <- genus_species_names[which(duplicated(genus_species_names))]
+island_multi_tip <- bidens$tip.label[which(duplicated(bidens$tip.label))]
 island_multi_tip <- unique(island_multi_tip)
 tip_position <- list()
 for (i in seq_along(island_multi_tip)) {
   tip_position[[i]] <- grep(
     pattern = island_multi_tip[i],
-    x = silversword$tip.label
+    x = bidens$tip.label
   )
 }
 
@@ -148,8 +144,8 @@ drop_random_subspecies <- unlist(lapply(tip_position, function(x) {
   sample(x = x, size = length(x) - 1, replace = FALSE)
 }))
 
-silversword <- ape::drop.tip(
-  phy = silversword,
+bidens <- ape::drop.tip(
+  phy = bidens,
   tip = drop_random_subspecies
 )
 
