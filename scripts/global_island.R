@@ -81,15 +81,17 @@ global_phylo <- ggtree(
     alpha = 0.3
   ) +
   ggplot2::scale_shape_manual(values = c(15, 16, 20)) +
-  ggplot2::scale_x_continuous(name = "Time before present (Myr)") +
-  ggtree::theme_tree2() +
   theme(
     plot.margin = margin(0, 0, 0, 0),
     legend.position = "none"
   )
 
 global <- cowplot::ggdraw(global_phylo) +
-  cowplot::draw_plot(world_map, 0, 0.6, 0.4, 0.4)
+  cowplot::draw_plot(world_map, 0, 0.6, 0.4, 0.4) +
+  cowplot::draw_text(text = "1", x = 0.5, y = 0.28, size = 10) +
+  cowplot::draw_text(text = "2", x = 0.74, y = 0.53, size = 10) +
+  cowplot::draw_text(text = "3", x = 0.88, y = 0.72, size = 10) +
+  cowplot::draw_text(text = "4", x = 0.86, y = 0.90, size = 10)
 
 horizontal <- data.frame(
   species_id = as.factor(c(1, 2, 4, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)),
@@ -177,7 +179,11 @@ island_phylo <- ggplot2::ggplot(data = horizontal) +
     axis.text.y = ggplot2::element_blank(),
     axis.title.y = ggplot2::element_blank(),
     plot.margin = margin(0, 0, 0, 0)
-  )
+  ) +
+  cowplot::draw_text(text = "1", x = 1.5, y = 2.5, size = 10) +
+  cowplot::draw_text(text = "2", x = 1.2, y = 10.5, size = 10) +
+  cowplot::draw_text(text = "3", x = 0.4, y = 11.5, size = 10) +
+  cowplot::draw_text(text = "4", x = 0.45, y = 13.5, size = 10)
 
 legend <- get_legend(island_phylo)
 
