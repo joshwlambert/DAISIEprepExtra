@@ -26,22 +26,24 @@ library(DAISIEprepExtra)
 # the variables required to be given by the user for this script are:
 # the island age (island_age) in million years, and number of species in the
 # mainland pool (num_mainland_species)
-# We set these at the start for our estimates for the mammals of Madagascar
+# We set these at the start for our estimates for the Asteraceae of Hawaii
 island_age <- 6.15
 num_mainland_species <- 1000
 
 # load Hawaiian asteraceae species data table
 data("hawaii_asters")
 
-# load the DNA only and complete trees
+# load the phylogenies
 hesperomannia <- ape::read.nexus(file = system.file(
   "extdata/Keeley_2021.tre",
-  package = "DAISIEprepExtra"
+  package = "DAISIEprepExtra",
+  mustWork = TRUE
 ))
 
 silversword <- ape::read.nexus(file = system.file(
   "extdata/Landis_2018_g4_mcc.tre",
-  package = "DAISIEprepExtra"
+  package = "DAISIEprepExtra",
+  mustWork = TRUE
 ))
 
 # remove subspecies from the silversword to not inflate species richness on the
@@ -73,7 +75,8 @@ silversword <- ape::drop.tip(
 # load biden tree
 bidens <- ape::read.nexus(file = system.file(
   "extdata/Pacific_Bidens_Knope_2020.tre",
-  package = "DAISIEprepExtra"
+  package = "DAISIEprepExtra",
+  mustWork = TRUE
 ))
 
 # deal with unnamed species
@@ -210,6 +213,11 @@ silversword_phylod <- phylobase::phylo4d(
   endemicity_status_silversword
 )
 
+bidens_phylod <- phylobase::phylo4d(
+  bidens,
+  endemicity_status_bidens
+)
+
 # extract island community using min algorithm
 island_tbl <- DAISIEprep::extract_island_species(
   phylod = hesperomannia_phylod,
@@ -222,26 +230,67 @@ island_tbl <- DAISIEprep::extract_island_species(
   island_tbl = island_tbl
 )
 
-# add Artemisia
-# In-text example
+island_tbl <- DAISIEprep::extract_island_species(
+  phylod = bidens_phylod,
+  extraction_method = "min",
+  island_tbl = island_tbl
+)
+
+# add Artemisia as an endemic_MaxAge; we have the stem age (3.93 Ma) and crown
+# (1.45 Ma) from in text
 island_tbl <- DAISIEprep::add_island_colonist(
   island_tbl = island_tbl,
   clade_name = "Artemisia",
   status = "endemic",
-  missing_species = 3,
-  branching_times = c(6.15),
-  min_age = 1.45
+  missing_species = 1,
+  col_time = 3.93,
+  col_max_age = TRUE,
+  branching_times = 1.45,
+  min_age = NA_real_,
+  species = c(
+    "Artemisia_kauaiensis",
+    "Artemisia_mauiensis",
+    "Artemisia_australis"
+  ),
+  clade_type = 1
 )
 
-# add Lipochaeta-Melanthera alliance
-# In-text
+# add Lipochaeta-Melanthera alliance, in-text stem age (1.26 Ma)
 island_tbl <- DAISIEprep::add_island_colonist(
   island_tbl = island_tbl,
   clade_name = "Lipochaeta-Melanthera",
   status = "endemic",
   missing_species = 22,
-  branching_times = c(1.26),
-  min_age = NA
+  col_time = 1.26,
+  col_max_age = TRUE,
+  branching_times = NA_real_,
+  min_age = NA_real_,
+  species = c(
+    "Lipochaeta_connata_acris",
+    "Lipochaeta_connata_connata",
+    "Lipochaeta_degeneri",
+    "Lipochaeta_heterophylla",
+    "Lipochaeta_lobata_leptophylla",
+    "Lipochaeta_lobata_lobata",
+    "Lipochaeta_rockii",
+    "Lipochaeta_succulenta",
+    "Melanthera_bryanii",
+    "Melanthera_fauriei",
+    "Melanthera_integrifolia",
+    "Melanthera_kamolensis",
+    "Melanthera_lavarum",
+    "Melanthera_micrantha_micrantha",
+    "Melanthera_micrantha_exigua",
+    "Melanthera_perdita",
+    "Melanthera_populifolia",
+    "Melanthera_remyi",
+    "Melanthera_subcordata",
+    "Melanthera_tenuifolia",
+    "Melanthera_tenuis",
+    "Melanthera_venosa",
+    "Melanthera_waimeaensis"
+  ),
+  clade_type = 1
 )
 
 # add Pseudognaphalium
@@ -250,10 +299,15 @@ island_tbl <- DAISIEprep::add_island_colonist(
   island_tbl = island_tbl,
   clade_name = "Pseudognaphalium",
   status = "endemic",
-  missing_species = 1,
-  branching_times = c(6.15),
-  min_age = NA
+  missing_species = 0,
+  col_time = NA_real_,
+  col_max_age = TRUE,
+  branching_times = NA_real_,
+  min_age = NA_real_,
+  species = "Pseudognaphalium_sandwicensium",
+  clade_type = 1
 )
+
 
 # add Tetramolopium
 # diversity data from taxonomic sources
@@ -261,9 +315,22 @@ island_tbl <- DAISIEprep::add_island_colonist(
   island_tbl = island_tbl,
   clade_name = "Tetramolopium",
   status = "endemic",
-  missing_species = 11,
-  branching_times = c(6.15),
-  min_age = NA
+  missing_species = 10,
+  col_time = NA_real_,
+  col_max_age = TRUE,
+  branching_times = NA_real_,
+  min_age = NA,
+  species = c(
+    "Tetramolopium_humile_haleakalae",
+    "Tetramolopium_humile_humile",
+    "Tetramolopium_lepidotum_lepidotum",
+    "Tetramolopium_remyi",
+    "Tetramolopium_rockii",
+    "Tetramolopium_arenarium_arenarium",
+    "Tetramolopium_filiforme",
+    "Tetramolopium_sylvae"
+  ),
+  clade_type = 1
 )
 
 # add Keysseria
@@ -272,9 +339,17 @@ island_tbl <- DAISIEprep::add_island_colonist(
   island_tbl = island_tbl,
   clade_name = "Keysseria",
   status = "endemic",
-  missing_species = 3,
-  branching_times = c(6.15),
-  min_age = NA
+  missing_species = 2,
+  col_time = NA_real_,
+  col_max_age = TRUE,
+  branching_times = NA_real_,
+  min_age = NA_real_,
+  species = c(
+    "Keysseria_maviensis",
+    "Keysseria_erici",
+    "Keysseria_helena"
+  ),
+  clade_type = 1
 )
 
 # add Remya
@@ -283,9 +358,17 @@ island_tbl <- DAISIEprep::add_island_colonist(
   island_tbl = island_tbl,
   clade_name = "Remya",
   status = "endemic",
-  missing_species = 3,
-  branching_times = c(6.15),
-  min_age = NA
+  missing_species = 2,
+  col_time = NA_real_,
+  col_max_age = TRUE,
+  branching_times = NA_real_,
+  min_age = NA,
+  species = c(
+    "Remya_mauiensis",
+    "Remya_kauaiensis",
+    "Remya_montgomeryi"
+  ),
+  clade_type = 1
 )
 
 # add Adenostemma
@@ -295,8 +378,12 @@ island_tbl <- DAISIEprep::add_island_colonist(
   clade_name = "Adenostemma",
   status = "nonendemic",
   missing_species = 0,
-  branching_times = c(6.15),
-  min_age = NA
+  col_time = NA_real_,
+  col_max_age = TRUE,
+  branching_times = NA_real_,
+  min_age = NA_real_,
+  species = "Adenostemma_viscosum",
+  clade_type = 1
 )
 
 # convert to daisie data table
@@ -344,4 +431,3 @@ ml <- DAISIE::DAISIE_ML_CS(
   ddmodel = 11,
   jitter = 1e-5
 )
-
