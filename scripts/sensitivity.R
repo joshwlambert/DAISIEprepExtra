@@ -150,7 +150,11 @@ for (i in seq_len(nrow(parameter_space))) {
     )
   }
 
-  ml_list[[i]] <- list(dna = ml_dna, complete = ml_complete)
+  ml_list[[i]] <- list(
+    dna = ml_dna,
+    complete = ml_complete,
+    parameters = parameter_space[i, ]
+  )
 }
 
 output_name <- "sensitivity.rds"
