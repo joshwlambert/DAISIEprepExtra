@@ -55,62 +55,66 @@ multi_phylods_complete <- lapply(
   asr_method = "parsimony"
 )
 
-mean_times_min_dna <- c()
-mean_times_min_complete <- c()
-mean_times_asr_dna <- c()
-mean_times_asr_complete <- c()
+times_min_dna <- list()
+times_min_complete <- list()
+times_asr_dna <- list()
+times_asr_complete <- list()
 for (i in seq_along(multi_phylods_dna)) {
 
-  message("Extracting ", i, " of ", length(multi_phylods_dna))
+  times_min_dna[[i]] <- DAISIEprep::benchmark(
+    phylod = multi_phylods_dna[[i]],
+    tree_size_range = NA,
+    num_points = NA,
+    prob_on_island = NA,
+    prob_endemic = NA,
+    replicates = 1,
+    extraction_method = "min",
+    asr_method = NA,
+    tie_preference = NA
+  )
 
-  # run extraction
-  min_time_dna <- system.time(for (n in 1:3) {
-    island_tbl_min <- DAISIEprep::extract_island_species(
-      phylod = multi_phylods_dna[[i]],
-      extraction_method = "min",
-      island_tbl = NULL,
-      include_not_present = FALSE
-    )
-  })
+  times_min_complete[[i]] <- DAISIEprep::benchmark(
+    phylod = multi_phylods_complete[[i]],
+    tree_size_range = NA,
+    num_points = NA,
+    prob_on_island = NA,
+    prob_endemic = NA,
+    replicates = 1,
+    extraction_method = "min",
+    asr_method = NA,
+    tie_preference = NA
+  )
 
-  min_time_complete <- system.time(for (n in 1:3) {
-    island_tbl_min <- DAISIEprep::extract_island_species(
-      phylod = multi_phylods_complete[[i]],
-      extraction_method = "min",
-      island_tbl = NULL,
-      include_not_present = FALSE
-    )
-  })
+  times_asr_dna[[i]] <- DAISIEprep::benchmark(
+    phylod = multi_phylods_dna[[i]],
+    tree_size_range = NA,
+    num_points = NA,
+    prob_on_island = NA,
+    prob_endemic = NA,
+    replicates = 1,
+    extraction_method = "asr",
+    asr_method = "parsimony",
+    tie_preference = "island"
+  )
 
-  asr_time_dna <- system.time(for (n in 1:3) {
-    island_tbl_asr <- DAISIEprep::extract_island_species(
-      phylod = multi_phylods_dna[[i]],
-      extraction_method = "asr",
-      island_tbl = NULL,
-      include_not_present = FALSE
-    )
-  })
-
-  asr_time_complete <- system.time(for (n in 1:3) {
-    island_tbl_asr <- DAISIEprep::extract_island_species(
-      phylod = multi_phylods_complete[[i]],
-      extraction_method = "asr",
-      island_tbl = NULL,
-      include_not_present = FALSE
-    )
-  })
-
-  mean_times_min_dna[i] <- min_time_dna["elapsed"] / 3
-  mean_times_min_complete[i] <- min_time_complete["elapsed"] / 3
-  mean_times_asr_dna[i] <- asr_time_dna["elapsed"] / 3
-  mean_times_asr_complete[i] <- asr_time_complete["elapsed"] / 3
+  times_asr_complete[[i]] <- DAISIEprep::benchmark(
+    phylod = multi_phylods_complete[[i]],
+    tree_size_range = NA,
+    num_points = NA,
+    prob_on_island = NA,
+    prob_endemic = NA,
+    replicates = 1,
+    extraction_method = "asr",
+    asr_method = "parsimony",
+    tie_preference = "island"
+  )
 }
 
-results <- data.frame(
-  mean_times_min_dna = mean_times_min_dna,
-  mean_times_min_complete = mean_times_min_complete,
-  mean_times_asr_dna = mean_times_asr_dna,
-  mean_times_asr_complete = mean_times_asr_complete
+performance <- list(
+  times_min_dna = times_min_dna,
+  times_min_complete = times_min_complete,
+  times_asr_dna = times_asr_dna,
+  times_asr_complete = times_asr_complete
 )
 
 output_name <- "performance_empirical.rds"
@@ -119,7 +123,7 @@ output_folder <- file.path("results")
 
 output_file_path <- file.path(output_folder, output_name)
 
-saveRDS(object = results, file = output_file_path)
+saveRDS(object = performance, file = output_file_path)
 
 message("Finished")
 
