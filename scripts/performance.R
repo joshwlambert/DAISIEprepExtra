@@ -6,16 +6,29 @@ set.seed(
   sample.kind = "Rejection"
 )
 
-performance <- DAISIEprep::benchmark(
+performance_min <- DAISIEprep::benchmark(
   phylod = NULL,
   tree_size_range = c(10, 10000),
   num_points = 15,
   prob_on_island = c(0.2, 0.5),
   prob_endemic = c(0.2, 0.8),
-  replicates = 10,
+  replicates = 100,
   extraction_method = "min",
   asr_method = NA,
   tie_preference = NA,
+  log_scale = TRUE
+)
+
+performance_asr <- DAISIEprep::benchmark(
+  phylod = NULL,
+  tree_size_range = c(10, 10000),
+  num_points = 15,
+  prob_on_island = c(0.2, 0.5),
+  prob_endemic = c(0.2, 0.8),
+  replicates = 100,
+  extraction_method = "asr",
+  asr_method = "parsimony",
+  tie_preference = "island",
   log_scale = TRUE
 )
 
