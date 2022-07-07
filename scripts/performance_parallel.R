@@ -39,6 +39,11 @@ performance_asr <- DAISIEprep::benchmark(
   parameter_index = parameter_index
 )
 
+performance <- list(
+  performance_min = performance_min,
+  performance_asr = performance_asr
+)
+
 output_name <- paste0("performance_param_set_", parameter_index, ".rds")
 
 output_folder <- file.path("results")

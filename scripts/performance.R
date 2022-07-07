@@ -32,6 +32,11 @@ performance_asr <- DAISIEprep::benchmark(
   log_scale = TRUE
 )
 
+performance <- list(
+  performance_min = performance_min,
+  performance_asr = performance_asr
+)
+
 output_name <- "performance.rds"
 
 output_folder <- file.path("results")
