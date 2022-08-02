@@ -28,7 +28,7 @@ library(DAISIEprepExtra)
 # mainland pool (num_mainland_species)
 # We set these at the start for our estimates for the Asteraceae of Hawaii
 island_age <- 6.15
-num_mainland_species <- 1000
+num_mainland_species <- 7500
 
 # load Hawaiian asteraceae species data table
 data("hawaii_asters")
@@ -260,17 +260,15 @@ island_tbl <- DAISIEprep::add_island_colonist(
   island_tbl = island_tbl,
   clade_name = "Lipochaeta-Melanthera",
   status = "endemic",
-  missing_species = 22,
+  missing_species = 19,
   col_time = 1.26,
   col_max_age = TRUE,
   branching_times = NA_real_,
   min_age = NA_real_,
   species = c(
-    "Lipochaeta_connata_acris",
     "Lipochaeta_connata_connata",
     "Lipochaeta_degeneri",
     "Lipochaeta_heterophylla",
-    "Lipochaeta_lobata_leptophylla",
     "Lipochaeta_lobata_lobata",
     "Lipochaeta_rockii",
     "Lipochaeta_succulenta",
@@ -280,7 +278,6 @@ island_tbl <- DAISIEprep::add_island_colonist(
     "Melanthera_kamolensis",
     "Melanthera_lavarum",
     "Melanthera_micrantha_micrantha",
-    "Melanthera_micrantha_exigua",
     "Melanthera_perdita",
     "Melanthera_populifolia",
     "Melanthera_remyi",
@@ -321,14 +318,17 @@ island_tbl <- DAISIEprep::add_island_colonist(
   branching_times = NA_real_,
   min_age = NA,
   species = c(
-    "Tetramolopium_humile_haleakalae",
-    "Tetramolopium_humile_humile",
-    "Tetramolopium_lepidotum_lepidotum",
+    "Tetramolopium_humile",
+    "Tetramolopium_lepidotum",
     "Tetramolopium_remyi",
     "Tetramolopium_rockii",
-    "Tetramolopium_arenarium_arenarium",
+    "Tetramolopium_arenarium",
+    "Tetramolopium_capillare",
+    "Tetramolopium_consanguineum",
+    "Tetramolopium_conyzoides",
     "Tetramolopium_filiforme",
-    "Tetramolopium_sylvae"
+    "Tetramolopium_sylvae",
+    "Tetramolopium_tenerrimum"
   ),
   clade_type = 1
 )
@@ -386,15 +386,9 @@ island_tbl <- DAISIEprep::add_island_colonist(
   clade_type = 1
 )
 
-# convert to daisie data table
-daisie_datatable <- DAISIEprep::as_daisie_datatable(
-  island_tbl = island_tbl,
-  island_age = island_age
-)
-
 # convert to daisie data list
 daisie_data_list <- DAISIEprep::create_daisie_data(
-  daisie_datatable = daisie_datatable,
+  data = island_tbl,
   island_age = island_age,
   num_mainland_species = num_mainland_species
 )
