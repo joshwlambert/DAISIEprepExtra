@@ -50,7 +50,7 @@ missing_species <- DAISIEprep::count_missing_species(
 # load the complete tree
 complete_phylo <- ape::read.nexus(
   file = system.file(
-    "extdata/Upham_complete_mcc.tre",
+    "extdata", "Upham_complete_mcc.tre",
     package = "DAISIEprepExtra"
   )
 )
