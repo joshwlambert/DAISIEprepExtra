@@ -29,44 +29,123 @@ num_mainland_species <- 1000
 # load madagascar mammals species data table
 data("madagascar_mammals", package = "DAISIEprepExtra")
 
-# load the DNA only and complete trees
-dna_phylo <- ape::read.nexus(file = system.file(
-  "extdata/Upham_dna_mcc.tre",
-  package = "DAISIEprepExtra"
-))
-complete_phylo <- ape::read.nexus(file = system.file(
-  "extdata/Upham_complete_mcc.tre",
-  package = "DAISIEprepExtra"
-))
+# load the checklist
+checklist <- utils::read.csv(
+  file = system.file(
+    "extdata", "madagascar_mammal_checklist.csv",
+    package = "DAISIEprepExtra"
+  ),
+  header = TRUE,
+)
 
-# convert trees to phylo4 objects
-dna_phylo <- phylobase::phylo4(dna_phylo)
+missing_species <- DAISIEprep::count_missing_species(
+  checklist = checklist,
+  phylo_name_col = "Name_In_Tree",
+  genus_name_col = "Genus",
+  in_phylo_col = "Sampled",
+  endemicity_status_col = "DAISIE_Status_Species",
+  rm_species_col = "Remove_Species"
+)
+
+# load the complete tree
+complete_phylo <- ape::read.nexus(
+  file = system.file(
+    "extdata/Upham_complete_mcc.tre",
+    package = "DAISIEprepExtra"
+  )
+)
+
+# convert tree to phylo4 objects
 complete_phylo <- phylobase::phylo4(complete_phylo)
 
 # create endemicity status data frame
 endemicity_status <- DAISIEprep::create_endemicity_status(
-  phylo = dna_phylo,
+  phylo = complete_phylo,
   island_species = madagascar_mammals
 )
 
 # combine tree and endemicity status
-phylod <- phylobase::phylo4d(dna_phylo, endemicity_status)
+phylod <- phylobase::phylo4d(complete_phylo, endemicity_status)
 
-# extract island community using min algorithm
-island_tbl <- DAISIEprep::extract_island_species(
+# reconstruct geographic ancestral states for extraction with asr
+phylod <- DAISIEprep::add_asr_node_states(
   phylod = phylod,
-  extraction_method = "min"
+  asr_method = "mk",
+  tie_preference = "mainland"
 )
 
-# convert to daisie data table
-daisie_datatable <- DAISIEprep::as_daisie_datatable(
+# extract island community using asr algorithm
+island_tbl <- DAISIEprep::extract_island_species(
+  phylod = phylod,
+  extraction_method = "asr"
+)
+
+# determine which island clade the missing species should be assigned to
+missing_genus <- DAISIEprep::unique_island_genera(island_tbl = island_tbl)
+
+# add missing species that match genera found in the island tbl
+island_tbl <- DAISIEprep::add_multi_missing_species(
+  missing_species = missing_species,
+  missing_genus = missing_genus,
+  island_tbl = island_tbl
+)
+
+# remove missing species that have already been inserted into the island tbl
+no_island_tbl_missing_species <- DAISIEprep::rm_multi_missing_species(
+  missing_species = missing_species,
+  missing_genus = missing_genus,
+  island_tbl = island_tbl
+)
+
+# add the Archaeoindris, Babakotia, Hadropithecus, Mesopropithecus, Pachylemur
+# as a missing species of the clade with
+# Megaladapis_edwardsi in it as it is a extinct lemur species
+island_tbl <- DAISIEprep::add_missing_species(
   island_tbl = island_tbl,
-  island_age = island_age
+  num_missing_species = 8,
+  species_name = "Megaladapis_edwardsi"
+)
+
+# add the Plesiorycteropus as a missing_species of the clade with
+# Tenrec_ecaudatus in it as it is a tenrec species
+island_tbl <- DAISIEprep::add_missing_species(
+  island_tbl = island_tbl,
+  num_missing_species = 2,
+  species_name = "Tenrec_ecaudatus"
+)
+
+# add Chaerephon species as separate colonisation
+Chaerephon_stem_age <- DAISIEprep::extract_stem_age(
+  genus_name = "Chaerephon",
+  phylod = phylod,
+  stem = "genus"
+)
+
+# add the Chaerephon as an stem age max age given the stem age in the tree
+island_tbl <- DAISIEprep::add_island_colonist(
+  island_tbl = island_tbl,
+  clade_name = "Chaerephon_leucogaster",
+  status = "nonendemic",
+  missing_species = 0,
+  col_time = Chaerephon_stem_age,
+  col_max_age = TRUE,
+  branching_times = NA_real_,
+  min_age = NA_real_,
+  species = "Chaerephon_leucogaster",
+  clade_type = 1
+)
+
+# add the Macronycteris as a missing species of the clade with
+# Hipposideros_commersoni in it as it is a bat species
+island_tbl <- DAISIEprep::add_missing_species(
+  island_tbl = island_tbl,
+  num_missing_species = 2,
+  species_name = "Hipposideros_commersoni"
 )
 
 # convert to daisie data list
 daisie_data_list <- DAISIEprep::create_daisie_data(
-  daisie_datatable = daisie_datatable,
+  data = island_tbl,
   island_age = island_age,
   num_mainland_species = num_mainland_species
 )
