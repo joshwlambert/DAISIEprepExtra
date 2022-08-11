@@ -1,6 +1,7 @@
 Package: DAISIEprepExtra
 Type: Package
-Title: Runs Analysis and Plots for DAISIEprep Paper
+Title: Scripts and documents to accompany and reproduce Lambert et al. 
+    application paper describing the DAISIEprep R package
 Version: 0.1.0
 Author: Joshua W. Lambert
 Authors@R: c(
@@ -40,8 +41,7 @@ Imports:
     ggtree,
     tibble
 Remotes:
-    joshwlambert/DAISIEprep@sensi,
-    rsetienne/DAISIE
+    joshwlambert/DAISIEprep@develop
 Depends: 
     R (>= 4.1)
 RoxygenNote: 7.2.1
