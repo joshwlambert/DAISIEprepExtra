@@ -31,20 +31,42 @@ island_age <- 6.15
 num_mainland_species <- 7500
 
 # load Hawaiian asteraceae species data table
-data("hawaii_asters")
+data("hawaii_asters", package = "DAISIEprepExtra")
+
+# load the checklist
+checklist <- utils::read.csv(
+  file = system.file(
+    "extdata", "hawaii_asteraceae_checklist.csv",
+    package = "DAISIEprepExtra"
+  ),
+  header = TRUE,
+)
+
+missing_species <- DAISIEprep::count_missing_species(
+  checklist = checklist,
+  phylo_name_col = "Name_In_Tree",
+  genus_name_col = "Genus",
+  in_phylo_col = "Sampled",
+  endemicity_status_col = "DAISIE_Status_Species",
+  rm_species_col = NULL
+)
 
 # load the phylogenies
-hesperomannia <- ape::read.nexus(file = system.file(
-  "extdata/Keeley_2021.tre",
-  package = "DAISIEprepExtra",
-  mustWork = TRUE
-))
+hesperomannia <- ape::read.nexus(
+  file = system.file(
+    "extdata", "Keeley_2021.tre",
+    package = "DAISIEprepExtra",
+    mustWork = TRUE
+  )
+)
 
-silversword <- ape::read.nexus(file = system.file(
-  "extdata/Landis_2018_g4_mcc.tre",
-  package = "DAISIEprepExtra",
-  mustWork = TRUE
-))
+silversword <- ape::read.nexus(
+  file = system.file(
+    "extdata", "Landis_2018_g4_mcc.tre",
+    package = "DAISIEprepExtra",
+    mustWork = TRUE
+  )
+)
 
 # remove subspecies from the silversword to not inflate species richness on the
 # archipelago, subspecies can be optionally kept if deemed important for
@@ -73,11 +95,13 @@ silversword <- ape::drop.tip(
 )
 
 # load biden tree
-bidens <- ape::read.nexus(file = system.file(
-  "extdata/Pacific_Bidens_Knope_2020.tre",
-  package = "DAISIEprepExtra",
-  mustWork = TRUE
-))
+bidens <- ape::read.nexus(
+  file = system.file(
+    "extdata", "Pacific_Bidens_Knope_2020.tre",
+    package = "DAISIEprepExtra",
+    mustWork = TRUE
+  )
+)
 
 # deal with unnamed species
 # there is one unnamed species from the tree on Hawaii (BidspnovLF12810G90)
