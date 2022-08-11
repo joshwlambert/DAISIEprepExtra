@@ -50,7 +50,7 @@ asr_plot <- asr_plot +
 min_plot <- min_plot +
   ggplot2::annotate(
     "text",
-    x = -5.5,
+    x = -5,
     y = 3.0,
     label = "gamma",
     parse = TRUE,
@@ -58,7 +58,7 @@ min_plot <- min_plot +
   ) +
   ggplot2::annotate(
     "text",
-    x = -2.5,
+    x = -2,
     y = 5.0,
     label = "gamma",
     parse = TRUE,
@@ -66,7 +66,7 @@ min_plot <- min_plot +
   ) +
   ggplot2::annotate(
     "text",
-    x = -2.5,
+    x = -2,
     y = 4.0,
     label = "gamma",
     parse = TRUE,
@@ -75,7 +75,7 @@ min_plot <- min_plot +
   ggplot2::annotate(
     "rect",
     xmin = -2,
-    xmax = 0,
+    xmax = 0.5,
     ymin = 4.75,
     ymax = 5.25,
     alpha = 0.2,
@@ -84,7 +84,7 @@ min_plot <- min_plot +
   ggplot2::annotate(
     "rect",
     xmin = -2,
-    xmax = 0,
+    xmax = 0.5,
     ymin = 4.25,
     ymax = 3.75,
     alpha = 0.2,
@@ -93,13 +93,12 @@ min_plot <- min_plot +
   ggplot2::annotate(
     "rect",
     xmin = -4.75,
-    xmax = 0,
+    xmax = 0.5,
     ymin = 3.25,
     ymax = 2.75,
     alpha = 0.2,
     fill = "#FF7F50"
   )
-
 
 asr_plot <- asr_plot +
   ggplot2::annotate(
@@ -112,8 +111,8 @@ asr_plot <- asr_plot +
   ) +
   ggplot2::annotate(
     "rect",
-    xmin = -17,
-    xmax = 0,
+    xmin = -17.5,
+    xmax = 0.5,
     ymin = 2.75,
     ymax = 5.25,
     alpha = 0.2,
@@ -141,5 +140,14 @@ legend <- cowplot::get_legend(
 
 # add the legend underneath the row we made earlier. Give it 10%
 # of the height of one plot (via rel_heights).
-cowplot::plot_grid(prow, legend, ncol = 1, rel_heights = c(1, .2))
+algo_plot <- cowplot::plot_grid(prow, legend, ncol = 1, rel_heights = c(1, .2))
 
+ggplot2::ggsave(
+  plot = algo_plot,
+  filename = file.path("plots", "algo_plot.png"),
+  device = "png",
+  width = 300,
+  height = 150,
+  units = "mm",
+  dpi = 600
+)
