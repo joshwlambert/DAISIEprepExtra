@@ -1,9 +1,5 @@
 ## code to prepare `madagascar_mammals` dataset goes here
 
-# Naming convention is the raw data column names are underscore separated
-# title case, when the data is modified in memory (i.e. in R) data column
-# names are underscore separated lowercase
-
 tbl <- utils::read.csv(
   file = system.file(
     "extdata", "madagascar_mammal_checklist.csv",
