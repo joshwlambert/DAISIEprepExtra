@@ -44,4 +44,4 @@ Remotes:
     joshwlambert/DAISIEprep@develop
 Depends: 
     R (>= 4.1)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3

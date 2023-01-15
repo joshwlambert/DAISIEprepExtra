@@ -9,14 +9,18 @@ tree_index <- args[1]
 data("madagascar_mammals", package = "DAISIEprepExtra")
 
 # load the DNA only and complete posterior distribution of trees
-phylos_dna <- ape::read.nexus(file = system.file(
-  "extdata/Upham_dna_posterior_100.nex",
-  package = "DAISIEprepExtra"
-))
-phylos_complete <- ape::read.nexus(file = system.file(
-  "extdata/Upham_complete_posterior_100.nex",
-  package = "DAISIEprepExtra"
-))
+phylos_dna <- ape::read.nexus(
+  file = system.file(
+    "extdata", "Upham_dna_posterior_100.nex",
+    package = "DAISIEprepExtra"
+  )
+)
+phylos_complete <- ape::read.nexus(
+  file = system.file(
+    "extdata", "Upham_complete_posterior_100.nex",
+    package = "DAISIEprepExtra"
+  )
+)
 
 sensitivity_dna <- DAISIEprep::sensitivity(
   phylo = phylos_dna[[tree_index]],
