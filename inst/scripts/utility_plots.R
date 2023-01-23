@@ -36,6 +36,12 @@ phylod <- DAISIEprep::add_asr_node_states(
   tie_preference = "mainland"
 )
 
+phylobase::tipLabels(phylod) <- gsub(
+  pattern = "_",
+  replacement = " ",
+  x = phylobase::tipLabels(phylod)
+)
+
   # generate plot
   # suppress Scale for 'y' is already present.
 phylo <- ggtree::ggtree(phylod) +
@@ -64,6 +70,12 @@ phylo <- phylo +
     labels = c("Endemic", "Non-endemic", "Not present")
   )
 
+phylobase::tipLabels(phylod) <- gsub(
+  pattern = " ",
+  replacement = "_",
+  x = phylobase::tipLabels(phylod)
+)
+
 island_tbl <- DAISIEprep::extract_island_species(
   phylod = phylod,
   extraction_method = "min"
@@ -85,7 +97,7 @@ utility_plots <- cowplot::plot_grid(
 
 ggplot2::ggsave(
   plot = utility_plots,
-  filename = file.path("plots", "utility_plots.png"),
+  filename = file.path("inst", "plots", "utility_plots.png"),
   device = "png",
   width = 300,
   height = 100,
