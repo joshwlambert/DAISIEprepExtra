@@ -24,7 +24,7 @@ sensitivity_dna <- lapply(
   extraction_method = c("min", "asr"),
   asr_method = c("parsimony", "mk"),
   tie_preference = c("island", "mainland"),
-  island_age = c(5),
+  island_age = 88,
   num_mainland_species = c(1000)
 )
 
@@ -35,7 +35,7 @@ sensitivity_complete <- lapply(
   extraction_method = c("min", "asr"),
   asr_method = c("parsimony", "mk"),
   tie_preference = c("island", "mainland"),
-  island_age = c(5),
+  island_age = 88,
   num_mainland_species = c(1000)
 )
 

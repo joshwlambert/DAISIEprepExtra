@@ -28,7 +28,7 @@ sensitivity_dna <- DAISIEprep::sensitivity(
   extraction_method = c("min", "asr"),
   asr_method = c("parsimony", "mk"),
   tie_preference = c("mainland"),
-  island_age = c(5),
+  island_age = 88,
   num_mainland_species = c(1000)
 )
 
@@ -38,7 +38,7 @@ sensitivity_complete <- DAISIEprep::sensitivity(
   extraction_method = c("min", "asr"),
   asr_method = c("parsimony", "mk"),
   tie_preference = c("mainland"),
-  island_age = c(5),
+  island_age = 88,
   num_mainland_species = c(1000)
 )
 
