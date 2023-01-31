@@ -22,7 +22,8 @@ performance_min <- DAISIEprep::benchmark(
   asr_method = NA,
   tie_preference = NA,
   log_scale = TRUE,
-  parameter_index = parameter_index
+  parameter_index = parameter_index,
+  verbose = TRUE
 )
 
 performance_asr <- DAISIEprep::benchmark(
@@ -36,7 +37,8 @@ performance_asr <- DAISIEprep::benchmark(
   asr_method = "parsimony",
   tie_preference = "island",
   log_scale = TRUE,
-  parameter_index = parameter_index
+  parameter_index = parameter_index,
+  verbose = TRUE
 )
 
 performance <- list(

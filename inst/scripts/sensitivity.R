@@ -25,7 +25,8 @@ sensitivity_dna <- lapply(
   asr_method = c("parsimony", "mk"),
   tie_preference = c("island", "mainland"),
   island_age = 88,
-  num_mainland_species = c(1000)
+  num_mainland_species = c(1000),
+  verbose = TRUE
 )
 
 sensitivity_complete <- lapply(
@@ -36,7 +37,8 @@ sensitivity_complete <- lapply(
   asr_method = c("parsimony", "mk"),
   tie_preference = c("island", "mainland"),
   island_age = 88,
-  num_mainland_species = c(1000)
+  num_mainland_species = c(1000),
+  verbose = TRUE
 )
 
 sensitivity <- list(

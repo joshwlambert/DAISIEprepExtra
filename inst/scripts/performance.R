@@ -16,7 +16,8 @@ performance_min <- DAISIEprep::benchmark(
   extraction_method = "min",
   asr_method = NA,
   tie_preference = NA,
-  log_scale = TRUE
+  log_scale = TRUE,
+  verbose = TRUE
 )
 
 performance_asr <- DAISIEprep::benchmark(
@@ -29,7 +30,8 @@ performance_asr <- DAISIEprep::benchmark(
   extraction_method = "asr",
   asr_method = "parsimony",
   tie_preference = "island",
-  log_scale = TRUE
+  log_scale = TRUE,
+  verbose = TRUE
 )
 
 performance <- list(

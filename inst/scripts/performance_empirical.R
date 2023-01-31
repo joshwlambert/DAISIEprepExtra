@@ -70,7 +70,8 @@ for (i in seq_along(multi_phylods_dna)) {
     replicates = 1,
     extraction_method = "min",
     asr_method = NA,
-    tie_preference = NA
+    tie_preference = NA,
+    verbose = TRUE
   )
 
   times_min_complete[[i]] <- DAISIEprep::benchmark(
@@ -82,7 +83,8 @@ for (i in seq_along(multi_phylods_dna)) {
     replicates = 1,
     extraction_method = "min",
     asr_method = NA,
-    tie_preference = NA
+    tie_preference = NA,
+    verbose = TRUE
   )
 
   times_asr_dna[[i]] <- DAISIEprep::benchmark(
@@ -94,7 +96,8 @@ for (i in seq_along(multi_phylods_dna)) {
     replicates = 1,
     extraction_method = "asr",
     asr_method = "parsimony",
-    tie_preference = "island"
+    tie_preference = "island",
+    verbose = TRUE
   )
 
   times_asr_complete[[i]] <- DAISIEprep::benchmark(
@@ -106,7 +109,8 @@ for (i in seq_along(multi_phylods_dna)) {
     replicates = 1,
     extraction_method = "asr",
     asr_method = "parsimony",
-    tie_preference = "island"
+    tie_preference = "island",
+    verbose = TRUE
   )
 }
 
