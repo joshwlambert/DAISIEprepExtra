@@ -8,4 +8,4 @@
 #SBATCH --mem=5GB
 
 ml R
-Rscript /data/p287218/DAISIEprepExtra/scripts/single_phylo_example.R
+Rscript /data/p287218/DAISIEprepExtra/inst/scripts/single_phylo_example.R

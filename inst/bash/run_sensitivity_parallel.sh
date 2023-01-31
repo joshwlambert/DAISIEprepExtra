@@ -9,4 +9,4 @@
 #SBATCH --mem=5GB
 
 ml R
-Rscript /data/p287218/DAISIEprepExtra/scripts/sensitivity_parallel.R ${SLURM_ARRAY_TASK_ID}
+Rscript /data/p287218/DAISIEprepExtra/inst/scripts/sensitivity_parallel.R ${SLURM_ARRAY_TASK_ID}
