@@ -50,22 +50,22 @@ asr_plot <- asr_plot +
 min_plot <- min_plot +
   ggplot2::annotate(
     "text",
-    x = 12,
-    y = 3.0,
+    x = 12.5,
+    y = 2.75,
     label = "*",
     size = 10
   ) +
   ggplot2::annotate(
     "text",
-    x = 14.5,
-    y = 5.0,
+    x = 15.5,
+    y = 5,
     label = "*",
     size = 10
   ) +
   ggplot2::annotate(
     "text",
-    x = 14.5,
-    y = 4.0,
+    x = 15.5,
+    y = 3.75,
     label = "*",
     size = 10
   ) +
