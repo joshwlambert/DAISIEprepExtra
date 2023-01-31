@@ -43,7 +43,7 @@ sensitivity_complete <- lapply(
 
 sensitivity <- list(
   sensitivity_dna = sensitivity_dna,
-  sensitivity_complete = sensitivity = complete
+  sensitivity_complete = sensitivity_complete
 )
 
 output_name <- "sensitivity.rds"
