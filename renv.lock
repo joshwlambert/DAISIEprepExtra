@@ -41,10 +41,16 @@
     },
     "DAISIEprep": {
       "Package": "DAISIEprep",
-      "Version": "0.2.0.9000",
-      "Source": "unknown",
+      "Version": "0.2.0",
+      "Source": "GitHub",
       "Remotes": "YuLab-SMU/ggtree, nmatzke/BioGeoBEARS",
-      "Hash": "579733c8014b85a449aeb3ef9117c3cc",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "DAISIEprep",
+      "RemoteUsername": "joshwlambert",
+      "RemoteRef": "v0.2.0",
+      "RemoteSha": "1e2ca69a597877b0199d92cbab5195f5f2c183b1",
+      "Hash": "2856cc03469920b2955a696e5a921c69",
       "Requirements": [
         "DAISIE",
         "ape",
@@ -127,10 +133,10 @@
     },
     "RNeXML": {
       "Package": "RNeXML",
-      "Version": "2.4.10",
+      "Version": "2.4.11",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "31033894cd3c33bc257ace8b8e76e124",
+      "Hash": "7b9c8316893ed2eec96f15224fd43d0d",
       "Requirements": [
         "XML",
         "ape",
@@ -447,12 +453,13 @@
     },
     "dplyr": {
       "Package": "dplyr",
-      "Version": "1.0.10",
+      "Version": "1.1.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "539412282059f7f0c07295723d23f987",
+      "Hash": "d3c34618017e7ae252d46d79a1b9ec32",
       "Requirements": [
         "R6",
+        "cli",
         "generics",
         "glue",
         "lifecycle",
@@ -647,14 +654,14 @@
       "Package": "ggtree",
       "Version": "3.7.1.002",
       "Source": "GitHub",
-      "Remotes": "GuangchuangYu/treeio",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "ggtree",
       "RemoteUsername": "YuLab-SMU",
-      "RemoteRef": "HEAD",
+      "RemoteRepo": "ggtree",
+      "RemoteRef": "master",
       "RemoteSha": "6bc28f3948ef64176c25ebc8086db5cf4d397f62",
-      "Hash": "4d3e560bdc61b34e9d11b25b73f76a03",
+      "Remotes": "GuangchuangYu/treeio",
+      "Hash": "0971b9b874b61e656c84dafa6f8fae94",
       "Requirements": [
         "ape",
         "aplot",
@@ -961,10 +968,10 @@
     },
     "phangorn": {
       "Package": "phangorn",
-      "Version": "2.10.0",
+      "Version": "2.11.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "45eb555cbc0393f9b748dd16e0111272",
+      "Hash": "a5b899ce1f3af942e16627a995e32ba2",
       "Requirements": [
         "Matrix",
         "Rcpp",
@@ -1151,6 +1158,14 @@
       "Hash": "5e3c5dc0b071b21fa128676560dbe94d",
       "Requirements": []
     },
+    "remotes": {
+      "Package": "remotes",
+      "Version": "2.4.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "227045be9aee47e6dda9bb38ac870d67",
+      "Requirements": []
+    },
     "renv": {
       "Package": "renv",
       "Version": "0.16.0",
@@ -1199,11 +1214,13 @@
     },
     "rnaturalearth": {
       "Package": "rnaturalearth",
-      "Version": "0.1.0",
+      "Version": "0.3.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "946d1b43d7aba91dfa804f02302a5125",
+      "Hash": "c97d05220a4112f461eb940f2633d091",
       "Requirements": [
+        "httr",
+        "jsonlite",
         "sf",
         "sp"
       ]
@@ -1388,19 +1405,20 @@
     },
     "tidyr": {
       "Package": "tidyr",
-      "Version": "1.2.1",
+      "Version": "1.3.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "cdb403db0de33ccd1b6f53b83736efa8",
+      "Hash": "e47debdc7ce599b070c8e78e8ac0cfcf",
       "Requirements": [
+        "cli",
         "cpp11",
         "dplyr",
-        "ellipsis",
         "glue",
         "lifecycle",
         "magrittr",
         "purrr",
         "rlang",
+        "stringr",
         "tibble",
         "tidyselect",
         "vctrs"
@@ -1447,11 +1465,11 @@
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "treeio",
       "RemoteUsername": "GuangchuangYu",
-      "RemoteRef": "HEAD",
+      "RemoteRepo": "treeio",
+      "RemoteRef": "master",
       "RemoteSha": "db8580345375480eb31ab99c139c59bb8fcdad9b",
-      "Hash": "ee1cdccba7c747a3dca350516c054b4c",
+      "Hash": "433b442fbf3eaa237278f697e41d4208",
       "Requirements": [
         "ape",
         "dplyr",
@@ -1502,10 +1520,10 @@
     },
     "utf8": {
       "Package": "utf8",
-      "Version": "1.2.2",
+      "Version": "1.2.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "c9c462b759a5cc844ae25b5942654d13",
+      "Hash": "1fe17157424bb09c48a8b3b550c753bc",
       "Requirements": []
     },
     "uuid": {

@@ -39,9 +39,10 @@ Imports:
     TreeSim,
     phylobase,
     ggtree,
-    tibble
+    tibble,
+    remotes
 Remotes:
-    joshwlambert/DAISIEprep@develop
+    joshwlambert/DAISIEprep@v0.2.0
 Depends: 
     R (>= 4.1)
 RoxygenNote: 7.2.3
