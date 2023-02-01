@@ -10,6 +10,6 @@
 mkdir -p logs
 mkdir -p results
 ml R
-Rscript -e "install.packages('renv)"
+Rscript -e "install.packages('renv')"
 Rscript -e "renv::restore()"
 Rscript -e "remotes::install_github('joshwlambert/DAISIEprepExtra')"
