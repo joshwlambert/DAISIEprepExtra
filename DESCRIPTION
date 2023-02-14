@@ -42,7 +42,7 @@ Imports:
     tibble,
     remotes
 Remotes:
-    joshwlambert/DAISIEprep@v0.2.1
+    joshwlambert/DAISIEprep@d9a3e7684db300f22a2cfd9cfac4283ea4bc3476
 Depends: 
     R (>= 4.1)
 RoxygenNote: 7.2.3
