@@ -24,4 +24,3 @@ hawaii_asters$status_species <- status_species
 names(hawaii_asters) <- c("tip_labels", "tip_endemicity_status")
 
 usethis::use_data(hawaii_asters, overwrite = TRUE)
-

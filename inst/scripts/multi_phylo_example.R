@@ -42,15 +42,6 @@ checklist <- utils::read.csv(
   header = TRUE,
 )
 
-missing_species <- DAISIEprep::count_missing_species(
-  checklist = checklist,
-  phylo_name_col = "Name_In_Tree",
-  genus_name_col = "Genus",
-  in_phylo_col = "Sampled",
-  endemicity_status_col = "DAISIE_Status_Species",
-  rm_species_col = NULL
-)
-
 # load the phylogenies
 hesperomannia <- ape::read.nexus(
   file = system.file(
@@ -242,23 +233,58 @@ bidens_phylod <- phylobase::phylo4d(
   endemicity_status_bidens
 )
 
+# reconstruct geographic ancestral states for extraction with asr
+hesperomannia_phylod <- DAISIEprep::add_asr_node_states(
+  phylod = hesperomannia_phylod,
+  asr_method = "mk",
+  tie_preference = "mainland"
+)
+
+silversword_phylod <- DAISIEprep::add_asr_node_states(
+  phylod = silversword_phylod,
+  asr_method = "mk",
+  tie_preference = "mainland"
+)
+
+bidens_phylod <- DAISIEprep::add_asr_node_states(
+  phylod = bidens_phylod,
+  asr_method = "mk",
+  tie_preference = "mainland"
+)
+
 # extract island community using min algorithm
 island_tbl <- DAISIEprep::extract_island_species(
   phylod = hesperomannia_phylod,
-  extraction_method = "min"
+  extraction_method = "asr"
+)
+
+# assign missing species to Hesperomannia colonists
+island_tbl <- DAISIEprep::add_missing_species(
+  island_tbl = island_tbl,
+  num_missing_species = 2,
+  species_to_add_to = "Hesperomannia_oahuensis"
 )
 
 island_tbl <- DAISIEprep::extract_island_species(
   phylod = silversword_phylod,
-  extraction_method = "min",
+  extraction_method = "asr",
   island_tbl = island_tbl
+)
+
+# assign missing species to silverswords colonists
+island_tbl <- DAISIEprep::add_missing_species(
+  island_tbl = island_tbl,
+  num_missing_species = 8,
+  species_to_add_to = "Dubautia_latifolia"
 )
 
 island_tbl <- DAISIEprep::extract_island_species(
   phylod = bidens_phylod,
-  extraction_method = "min",
+  extraction_method = "asr",
   island_tbl = island_tbl
 )
+
+# Bidens do not have any missing species
 
 # add Artemisia as an endemic_MaxAge; we have the stem age (3.93 Ma) and crown
 # (1.45 Ma) from in text

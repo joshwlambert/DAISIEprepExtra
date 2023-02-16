@@ -1,127 +1,127 @@
-Archipelago,Subfamily,Tribe,Genus,Species,Subspecies,Native,Endemic,Extinct_extant,Genetic_available,Phylo_available,Time_calibrated,Archipelago_clade,DAISIE_status
-Hawaii,Asteroideae,Eupatorieae,Adenostemma,viscosum,NA,Native,NonEndemic,Extant,Yes_Arch,Yes_clade,Dated,Adenostemma,Non_endemic
-Hawaii,Asteroideae,Anthemideae,Artemisia,kauaiensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Artemisia,Endemic
-Hawaii,Asteroideae,Anthemideae,Artemisia,mauiensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Artemisia,Endemic
-Hawaii,Asteroideae,Anthemideae,Artemisia,australis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Artemisia,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,amplectens,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,asymmetrica,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,campylotheca,subsp. waihoiensis,Native,Endemic,Extant,NA,Yes_clade,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,campylotheca,subsp. campylotheca,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,campylotheca,subsp. pentamera,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,cervicata,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,conjuncta,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,cosmoides,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,forbesii,subsp. forbesii,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,forbesii,subsp. kahiliensis,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,hawaiensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,hillebrandiana,subsp. polycephala,Native,Endemic,Extant,NA,Yes_clade,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,hillebrandiana,subsp. hillebrandiana,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,macrocarpa,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,mauiensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,menziesii,subsp. filiformis,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,menziesii,subsp. menziesii,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,micrantha,subsp. micrantha,Native,Endemic,Extant,NA,Yes_clade,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,micrantha,subsp. ctenophylla,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,micrantha,subsp. kalealaha,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,molokaiensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,populifolia,NA,Native,Endemic,Extant,NA,Yes_clade,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,sandvicensis,subsp. confusa,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,sandvicensis,subsp. sandvicensis,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,torta,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,valida,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,wiebkei,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
-Hawaii,Cichorioideae,Vernonieae,Hesperomannia,oahuensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Hesperomannia,Endemic
-Hawaii,Cichorioideae,Vernonieae,Hesperomannia,arborescens,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Hesperomannia,Endemic
-Hawaii,Cichorioideae,Vernonieae,Hesperomannia,swezeyi,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Hesperomannia,Endemic
-Hawaii,Cichorioideae,Vernonieae,Hesperomannia,lydgatei,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Hesperomannia,Endemic
-Hawaii,Asteroideae,Astereae,Keysseria,maviensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Keysseria,Endemic
-Hawaii,Asteroideae,Astereae,Keysseria,erici,NA,Native,Endemic,Extant,NA,Yes_clade,Dated,Keysseria,Endemic
-Hawaii,Asteroideae,Astereae,Keysseria,helena,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Keysseria,Endemic
-Hawaii,Asteroideae,Gnaphalieae,Pseudognaphalium,sandwicensium,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Pseudognaphalium,Endemic
-Hawaii,Asteroideae,Astereae,Remya,mauiensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Remya,Endemic
-Hawaii,Asteroideae,Astereae,Remya,kauaiensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Remya,Endemic
-Hawaii,Asteroideae,Astereae,Remya,montgomeryi,NA,Native,Endemic,Extant,NA,Yes_clade,Not_dated,Remya,Endemic
-Hawaii,Asteroideae,Madieae,Argyroxiphium,caliginis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Argyroxiphium,grayanum,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Argyroxiphium,kauense,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Argyroxiphium,sandwicense,subsp. macrocephalum,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Argyroxiphium,sandwicense,subsp. sandwicense,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Argyroxiphium,virescens,NA,Native,Endemic,Extinct,NA,Yes_clade,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,arborea,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,carrii,NA,Native,Endemic,Extant,NA,Yes_clade,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,ciliolata,subsp. ciliolata,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,ciliolata,subsp. glutinosa,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,hanaulaensis,NA,Native,Endemic,Extant,NA,Yes_clade,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,herbstobatae,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,imbricata,subsp. acronaea,Native,Endemic,Extant,NA,Yes_clade,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,imbricata,subsp. imbricata,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,kalalauensis,NA,Native,Endemic,Extant,NA,Yes_clade,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,kenwoodii,NA,Native,Endemic,Extinct,NA,Yes_clade,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,knudsenii,subsp. filiformis,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,knudsenii,subsp. knudsenii,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,knudsenii,subsp. nagatae,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,laevigata,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,latifolia,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,laxa,subsp. bryanii,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,laxa,subsp. hirsuta,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,laxa,subsp. laxa,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,laxa,subsp. pseudoplantaginea,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,linearis,subsp. hillebrandii,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,linearis,subsp. linearis,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,menziesii,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,microcephala,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,paleata,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,pauciflorula,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,plantaginea,subsp. humilis,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,plantaginea,subsp. magnifolia,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,plantaginea,subsp. plantaginea,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,platyphylla,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,raillardioides,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,reticulata,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,scabra,subsp. leiophylla,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,scabra,subsp. scabra,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,sherffiana,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,syndetica,NA,Native,Endemic,Extant,NA,Yes_clade,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,waialealae,NA,Native,Endemic,Extant,NA,Yes_clade,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Dubautia,waianapanapaensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Wilkesia,gymnoxiphium,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Madieae,Wilkesia,hobdyi,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Silversword_alliance,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,humile,subsp. haleakalae,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,humile,subsp. humile,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,lepidotum,subsp. lepidotum,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,remyi,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,rockii,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,arenarium,subsp. laxum,Native,Endemic,Extinct,NA,Yes_clade,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,arenarium,subsp. arenarium,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,capillare,NA,Native,Endemic,Extinct,NA,Yes_clade,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,consanguineum,subsp. leptophyllum,Native,Endemic,Extinct,NA,Yes_clade,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,consanguineum,subsp. consanguineum,Native,Endemic,Extinct,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,conyzoides,NA,Native,Endemic,Extinct,NA,Yes_clade,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,filiforme,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,lepidotum,subsp. arbusculum,Native,Endemic,Extinct,NA,Yes_clade,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,sylvae,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Astereae,Tetramolopium,tenerrimum,NA,Native,Endemic,Extinct,Yes_Arch,Yes_species,Not_dated,Tetramolopium,Endemic
-Hawaii,Asteroideae,Heliantheae,Lipochaeta,connata,subsp. acris,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Lipochaeta,connata,subsp. connata,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Lipochaeta,degeneri,NA,Native,Endemic,Extinct,NA,Yes_clade,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Lipochaeta,heterophylla,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Lipochaeta,lobata,subsp. leptophylla,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Lipochaeta,lobata,subsp. lobata,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Lipochaeta,rockii,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Lipochaeta,succulenta,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,bryanii,NA,Native,Endemic,Extinct,NA,Yes_clade,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,fauriei,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,integrifolia,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,kamolensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,lavarum,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,micrantha,subsp. micrantha,Native,Endemic,Extant,NA,Yes_clade,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,micrantha,subsp. exigua,Native,Endemic,Extinct,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,perdita,NA,Native,Endemic,Extinct,NA,Yes_clade,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,populifolia,NA,Native,Endemic,Extinct,NA,Yes_clade,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,remyi,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,subcordata,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,tenuifolia,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,tenuis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,venosa,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Heliantheae,Melanthera,waimeaensis,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Lipochaeta_alliance,Endemic
-Hawaii,Asteroideae,Coreopsideae,Bidens,spnovOahu,NA,Native,Endemic,Extant,Yes_Arch,Yes_species,Dated,Bidens,Endemic
+Archipelago,Subfamily,Tribe,Genus,Species,Subspecies,Our_name,Native,Endemic,Extinct_extant,Phylo_available,Time_calibrated,Archipelago_clade,DAISIE_status,Sampled,Name_in_tree
+Hawaii,Asteroideae,Eupatorieae,Adenostemma,viscosum,NA,Adenostemma_viscosum,Native,NonEndemic,Extant,Yes_clade,Dated,Adenostemma,Non_endemic,FALSE,NA
+Hawaii,Asteroideae,Anthemideae,Artemisia,kauaiensis,NA,Artemisia_kauaiensis,Native,Endemic,Extant,Yes_species,Dated,Artemisia,Endemic,FALSE,NA
+Hawaii,Asteroideae,Anthemideae,Artemisia,mauiensis,NA,Artemisia_mauiensis,Native,Endemic,Extant,Yes_species,Dated,Artemisia,Endemic,FALSE,NA
+Hawaii,Asteroideae,Anthemideae,Artemisia,australis,NA,Artemisia_australis,Native,Endemic,Extant,Yes_species,Dated,Artemisia,Endemic,FALSE,NA
+Hawaii,Asteroideae,Coreopsideae,Bidens,amplectens,NA,Bidens_amplectens,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,Bidamplectens2K13
+Hawaii,Asteroideae,Coreopsideae,Bidens,asymmetrica,NA,Bidens_asymmetrica,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,"Bidasymmetrica1K28, Bidasymmetrica2K29"
+Hawaii,Asteroideae,Coreopsideae,Bidens,campylotheca,subsp. waihoiensis,Bidens_campylotheca_waihoiensis,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,FALSE,NA
+Hawaii,Asteroideae,Coreopsideae,Bidens,campylotheca,subsp. campylotheca,Bidens_campylotheca_campylotheca,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidcampylothecacampyloK17
+Hawaii,Asteroideae,Coreopsideae,Bidens,campylotheca,subsp. pentamera,Bidens_campylotheca_pentamera,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,FALSE,NA
+Hawaii,Asteroideae,Coreopsideae,Bidens,cervicata,NA,Bidens_cervicata,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,"BidcervicataK2223, BidcervicataGandersK86"
+Hawaii,Asteroideae,Coreopsideae,Bidens,conjuncta,NA,Bidens_conjuncta,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,Bidconjuncta1PerlmanK50
+Hawaii,Asteroideae,Coreopsideae,Bidens,cosmoides,NA,Bidens_cosmoides,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,"Bidcosmoides1K3787, Bidcosmoides2WW13050G80"
+Hawaii,Asteroideae,Coreopsideae,Bidens,forbesii,subsp. forbesii,Bidens_forbesii_forbesii,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,Bidforbesii2K15
+Hawaii,Asteroideae,Coreopsideae,Bidens,forbesii,subsp. kahiliensis,Bidens_forbesii_kahiliensis,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,FALSE,NA
+Hawaii,Asteroideae,Coreopsideae,Bidens,hawaiensis,NA,Bidens_hawaiensis,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,Bidhawaiensis1K37
+Hawaii,Asteroideae,Coreopsideae,Bidens,hillebrandiana,subsp. polycephala,Bidens_hillebrandiana_polycephala,Native,Endemic,Extant,Yes_clade,Dated,Bidens,Endemic,FALSE,NA
+Hawaii,Asteroideae,Coreopsideae,Bidens,hillebrandiana,subsp. hillebrandiana,Bidens_hillebrandiana_hillebrandiana,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidhillebrahillebraPerlman15190B225
+Hawaii,Asteroideae,Coreopsideae,Bidens,macrocarpa,NA,Bidens_macrocarpa,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,"Bidmacrocarpa2FMB12806G85, BidmacrocarpaCammels5490B110"
+Hawaii,Asteroideae,Coreopsideae,Bidens,mauiensis,NA,Bidens_mauiensis,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,Bidmauiensis1K18
+Hawaii,Asteroideae,Coreopsideae,Bidens,menziesii,subsp. filiformis,Bidens_menziesii_filiformis,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidmenziesiifiliformPerlman10284B230
+Hawaii,Asteroideae,Coreopsideae,Bidens,menziesii,subsp. menziesii,Bidens_menziesii_menziesii,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidmenziesiimenziesiiWood6029B231
+Hawaii,Asteroideae,Coreopsideae,Bidens,micrantha,subsp. micrantha,Bidens_micrantha_micrantha,Native,Endemic,Extant,Yes_clade,Dated,Bidens,Endemic,FALSE,NA
+Hawaii,Asteroideae,Coreopsideae,Bidens,micrantha,subsp. ctenophylla,Bidens_micrantha_ctenophylla,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidmicranthactenoPerlman16803B233
+Hawaii,Asteroideae,Coreopsideae,Bidens,micrantha,subsp. kalealaha,Bidens_micrantha_kalealaha,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidmicrankalealOppenhH89905B234
+Hawaii,Asteroideae,Coreopsideae,Bidens,molokaiensis,NA,Bidens_molokaiensis,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidmolokaiensisK45
+Hawaii,Asteroideae,Coreopsideae,Bidens,populifolia,NA,Bidens_populifolia,Native,Endemic,Extant,Yes_clade,Dated,Bidens,Endemic,TRUE,BidpopulifoliaGandersK80
+Hawaii,Asteroideae,Coreopsideae,Bidens,sandvicensis,subsp. confusa,Bidens_sandvicensis_confusa,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidsandvicensisconfusaK19
+Hawaii,Asteroideae,Coreopsideae,Bidens,sandvicensis,subsp. sandvicensis,Bidens_sandvicensis_sandvicensis,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,"Bidsandvicensis1K3786, BidsandvicensisLorence5372B109, BidsandvicensisF12800G111, Bidsandvicensis2K35, BidsandvicensisH1004G89, "
+Hawaii,Asteroideae,Coreopsideae,Bidens,torta,NA,Bidens_torta,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,Bidtorta2K1675
+Hawaii,Asteroideae,Coreopsideae,Bidens,valida,NA,Bidens_valida,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,"BidvalidaK20, BidvalidaWood1351B116"
+Hawaii,Asteroideae,Coreopsideae,Bidens,wiebkei,NA,Bidens_wiebkei,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,"BidwiebkeiK48, BidwiebkeiK47"
+Hawaii,Cichorioideae,Vernonieae,Hesperomannia,oahuensis,NA,Hesperomannia_oahuensis,Native,Endemic,Extant,Yes_species,Dated,Hesperomannia,Endemic,TRUE,Hesperomannia_oahuensis
+Hawaii,Cichorioideae,Vernonieae,Hesperomannia,arborescens,NA,Hesperomannia_arborescens,Native,Endemic,Extant,Yes_species,Not_dated,Hesperomannia,Endemic,FALSE,NA
+Hawaii,Cichorioideae,Vernonieae,Hesperomannia,swezeyi,NA,Hesperomannia_swezeyi,Native,Endemic,Extant,Yes_species,Not_dated,Hesperomannia,Endemic,FALSE,NA
+Hawaii,Cichorioideae,Vernonieae,Hesperomannia,lydgatei,NA,Hesperomannia_lydgatei,Native,Endemic,Extant,Yes_species,Dated,Hesperomannia,Endemic,TRUE,Hesperomannia_lydgatei
+Hawaii,Asteroideae,Astereae,Keysseria,maviensis,NA,Keysseria_maviensis,Native,Endemic,Extant,Yes_species,Not_dated,Keysseria,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Keysseria,erici,NA,Keysseria_erici,Native,Endemic,Extant,Yes_clade,Dated,Keysseria,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Keysseria,helena,NA,Keysseria_helena,Native,Endemic,Extant,Yes_species,Dated,Keysseria,Endemic,FALSE,NA
+Hawaii,Asteroideae,Gnaphalieae,Pseudognaphalium,sandwicensium,NA,Pseudognaphalium_sandwicensium,Native,Endemic,Extant,Yes_species,Dated,Pseudognaphalium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Remya,mauiensis,NA,Remya_mauiensis,Native,Endemic,Extant,Yes_species,Not_dated,Remya,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Remya,kauaiensis,NA,Remya_kauaiensis,Native,Endemic,Extant,Yes_species,Not_dated,Remya,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Remya,montgomeryi,NA,Remya_montgomeryi,Native,Endemic,Extant,Yes_clade,Not_dated,Remya,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Argyroxiphium,caliginis,NA,Argyroxiphium_caliginis,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Argyroxiphium_caliginis
+Hawaii,Asteroideae,Madieae,Argyroxiphium,grayanum,NA,Argyroxiphium_grayanum,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,"Argyroxiphium_grayanum_West_Maui, Argyroxiphium_grayanum_East_Maui"
+Hawaii,Asteroideae,Madieae,Argyroxiphium,kauense,NA,Argyroxiphium_kauense,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Argyroxiphium_kauense
+Hawaii,Asteroideae,Madieae,Argyroxiphium,sandwicense,subsp. macrocephalum,Argyroxiphium_sandwicense_macrocephalum,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Argyroxiphium_sandwicense_subsp._macrocephalum
+Hawaii,Asteroideae,Madieae,Argyroxiphium,sandwicense,subsp. sandwicense,Argyroxiphium_sandwicense_sandwicense,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Argyroxiphium_sandwicense_subsp._sandwicense
+Hawaii,Asteroideae,Madieae,Argyroxiphium,virescens,NA,Argyroxiphium_virescens,Native,Endemic,Extinct,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,arborea,NA,Dubautia_arborea,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_arborea
+Hawaii,Asteroideae,Madieae,Dubautia,carrii,NA,Dubautia_carrii,Native,Endemic,Extant,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,ciliolata,subsp. ciliolata,Dubautia_ciliolata_ciliolata,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_ciliolata_subsp._ciliolata
+Hawaii,Asteroideae,Madieae,Dubautia,ciliolata,subsp. glutinosa,Dubautia_ciliolata_glutinosa,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_ciliolata_subsp._glutinosa
+Hawaii,Asteroideae,Madieae,Dubautia,hanaulaensis,NA,Dubautia_hanaulaensis,Native,Endemic,Extant,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,herbstobatae,NA,Dubautia_herbstobatae,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_herbstobatae
+Hawaii,Asteroideae,Madieae,Dubautia,imbricata,subsp. acronaea,Dubautia_imbricata_acronaea,Native,Endemic,Extant,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,imbricata,subsp. imbricata,Dubautia_imbricata_imbricata,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_imbricata
+Hawaii,Asteroideae,Madieae,Dubautia,kalalauensis,NA,Dubautia_kalalauensis,Native,Endemic,Extant,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,kenwoodii,NA,Dubautia_kenwoodii,Native,Endemic,Extinct,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,knudsenii,subsp. filiformis,Dubautia_knudsenii_filiformis,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_knudsenii_subsp._filiformis
+Hawaii,Asteroideae,Madieae,Dubautia,knudsenii,subsp. knudsenii,Dubautia_knudsenii_knudsenii,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_knudsenii_subsp._knudsenii
+Hawaii,Asteroideae,Madieae,Dubautia,knudsenii,subsp. nagatae,Dubautia_knudsenii_nagatae,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_knudsenii_subsp._nagatae
+Hawaii,Asteroideae,Madieae,Dubautia,laevigata,NA,Dubautia_laevigata,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_laevigata
+Hawaii,Asteroideae,Madieae,Dubautia,latifolia,NA,Dubautia_latifolia,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_latifolia
+Hawaii,Asteroideae,Madieae,Dubautia,laxa,subsp. bryanii,Dubautia_laxa_bryanii,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,laxa,subsp. hirsuta,Dubautia_laxa_hirsuta,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_laxa_subsp._hirsuta
+Hawaii,Asteroideae,Madieae,Dubautia,laxa,subsp. laxa,Dubautia_laxa_laxa,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_laxa_subsp._laxa
+Hawaii,Asteroideae,Madieae,Dubautia,laxa,subsp. pseudoplantaginea,Dubautia_laxa_pseudoplantaginea,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,linearis,subsp. hillebrandii,Dubautia_linearis_hillebrandii,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_linearis_subsp._hillebrandii
+Hawaii,Asteroideae,Madieae,Dubautia,linearis,subsp. linearis,Dubautia_linearis_linearis,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_linearis_subsp._linearis
+Hawaii,Asteroideae,Madieae,Dubautia,menziesii,NA,Dubautia_menziesii,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_menziesii
+Hawaii,Asteroideae,Madieae,Dubautia,microcephala,NA,Dubautia_microcephala,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_microcephala
+Hawaii,Asteroideae,Madieae,Dubautia,paleata,NA,Dubautia_paleata,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_paleata
+Hawaii,Asteroideae,Madieae,Dubautia,pauciflorula,NA,Dubautia_pauciflorula,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_pauciflorula
+Hawaii,Asteroideae,Madieae,Dubautia,plantaginea,subsp. humilis,Dubautia_plantaginea_humilis,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_plantaginea_subsp._humilis
+Hawaii,Asteroideae,Madieae,Dubautia,plantaginea,subsp. magnifolia,Dubautia_plantaginea_magnifolia,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_plantaginea_subsp._magnifolia
+Hawaii,Asteroideae,Madieae,Dubautia,plantaginea,subsp. plantaginea,Dubautia_plantaginea_plantaginea,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_plantaginea_subsp._plantaginea
+Hawaii,Asteroideae,Madieae,Dubautia,platyphylla,NA,Dubautia_platyphylla,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_platyphylla
+Hawaii,Asteroideae,Madieae,Dubautia,raillardioides,NA,Dubautia_raillardioides,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_raillardioides
+Hawaii,Asteroideae,Madieae,Dubautia,reticulata,NA,Dubautia_reticulata,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_reticulata
+Hawaii,Asteroideae,Madieae,Dubautia,scabra,subsp. leiophylla,Dubautia_scabra_leiophylla,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_scabra_subsp._leiophylla
+Hawaii,Asteroideae,Madieae,Dubautia,scabra,subsp. scabra,Dubautia_scabra_scabra,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_scabra_subsp._scabra
+Hawaii,Asteroideae,Madieae,Dubautia,sherffiana,NA,Dubautia_sherffiana,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Dubautia_sherffiana
+Hawaii,Asteroideae,Madieae,Dubautia,syndetica,NA,Dubautia_syndetica,Native,Endemic,Extant,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,waialealae,NA,Dubautia_waialealae,Native,Endemic,Extant,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Dubautia,waianapanapaensis,NA,Dubautia_waianapanapaensis,Native,Endemic,Extant,Yes_clade,Dated,Silversword_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Madieae,Wilkesia,gymnoxiphium,NA,Wilkesia_gymnoxiphium,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Wilkesia_gymnoxiphium
+Hawaii,Asteroideae,Madieae,Wilkesia,hobdyi,NA,Wilkesia_hobdyi,Native,Endemic,Extant,Yes_species,Dated,Silversword_alliance,Endemic,TRUE,Wilkesia_hobdyi
+Hawaii,Asteroideae,Astereae,Tetramolopium,humile,subsp. haleakalae,Tetramolopium_humile_haleakalae,Native,Endemic,Extant,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,humile,subsp. humile,Tetramolopium_humile_humile,Native,Endemic,Extant,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,lepidotum,subsp. lepidotum,Tetramolopium_lepidotum_lepidotum,Native,Endemic,Extant,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,remyi,NA,Tetramolopium_remyi,Native,Endemic,Extant,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,rockii,NA,Tetramolopium_rockii,Native,Endemic,Extant,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,arenarium,subsp. laxum,Tetramolopium_arenarium_laxum,Native,Endemic,Extinct,Yes_clade,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,arenarium,subsp. arenarium,Tetramolopium_arenarium_arenarium,Native,Endemic,Extant,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,capillare,NA,Tetramolopium_capillare,Native,Endemic,Extinct,Yes_clade,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,consanguineum,subsp. leptophyllum,Tetramolopium_consanguineum_leptophyllum,Native,Endemic,Extinct,Yes_clade,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,consanguineum,subsp. consanguineum,Tetramolopium_consanguineum_consanguineum,Native,Endemic,Extinct,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,conyzoides,NA,Tetramolopium_conyzoides,Native,Endemic,Extinct,Yes_clade,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,filiforme,NA,Tetramolopium_filiforme,Native,Endemic,Extant,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,lepidotum,subsp. arbusculum,Tetramolopium_lepidotum_arbusculum,Native,Endemic,Extinct,Yes_clade,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,sylvae,NA,Tetramolopium_sylvae,Native,Endemic,Extant,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Astereae,Tetramolopium,tenerrimum,NA,Tetramolopium_tenerrimum,Native,Endemic,Extinct,Yes_species,Not_dated,Tetramolopium,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Lipochaeta,connata,subsp. acris,Lipochaeta_connata_acris,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Lipochaeta,connata,subsp. connata,Lipochaeta_connata_connata,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Lipochaeta,degeneri,NA,Lipochaeta_degeneri,Native,Endemic,Extinct,Yes_clade,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Lipochaeta,heterophylla,NA,Lipochaeta_heterophylla,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Lipochaeta,lobata,subsp. leptophylla,Lipochaeta_lobata_leptophylla,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Lipochaeta,lobata,subsp. lobata,Lipochaeta_lobata_lobata,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Lipochaeta,rockii,NA,Lipochaeta_rockii,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Lipochaeta,succulenta,NA,Lipochaeta_succulenta,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,bryanii,NA,Melanthera_bryanii,Native,Endemic,Extinct,Yes_clade,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,fauriei,NA,Melanthera_fauriei,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,integrifolia,NA,Melanthera_integrifolia,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,kamolensis,NA,Melanthera_kamolensis,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,lavarum,NA,Melanthera_lavarum,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,micrantha,subsp. micrantha,Melanthera_micrantha_micrantha,Native,Endemic,Extant,Yes_clade,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,micrantha,subsp. exigua,Melanthera_micrantha_exigua,Native,Endemic,Extinct,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,perdita,NA,Melanthera_perdita,Native,Endemic,Extinct,Yes_clade,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,populifolia,NA,Melanthera_populifolia,Native,Endemic,Extinct,Yes_clade,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,remyi,NA,Melanthera_remyi,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,subcordata,NA,Melanthera_subcordata,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,tenuifolia,NA,Melanthera_tenuifolia,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,tenuis,NA,Melanthera_tenuis,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,venosa,NA,Melanthera_venosa,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Heliantheae,Melanthera,waimeaensis,NA,Melanthera_waimeaensis,Native,Endemic,Extant,Yes_species,Dated,Lipochaeta_alliance,Endemic,FALSE,NA
+Hawaii,Asteroideae,Coreopsideae,Bidens,spnovOahu,NA,Bidens_spnovOahu,Native,Endemic,Extant,Yes_species,Dated,Bidens,Endemic,TRUE,BidspnovLF12810G90
