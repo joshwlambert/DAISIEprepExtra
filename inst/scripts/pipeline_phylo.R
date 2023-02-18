@@ -20,7 +20,10 @@ endemicity_status <- sample(
 
 phylod <- phylobase::phylo4d(phylo, as.data.frame(endemicity_status))
 
-phylod <- DAISIEprep::add_asr_node_states(phylod = phylod, asr_method = "parsimony")
+phylod <- DAISIEprep::add_asr_node_states(
+  phylod = phylod,
+  asr_method = "parsimony"
+)
 
 phylo <- ggtree::ggtree(phylod) +
   ggtree::geom_tippoint(
@@ -58,4 +61,3 @@ island_tbl <- DAISIEprep::extract_island_species(
   phylod = phylod,
   extraction_method = "asr"
 )
-

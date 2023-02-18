@@ -37,4 +37,3 @@ ggplot2::ggsave(
   units = "mm",
   dpi = 600
 )
-

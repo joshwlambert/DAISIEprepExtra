@@ -30,7 +30,11 @@ phylo_sampled <- island_tip_labels %in% tree$tip.label
 
 island_species <- data.frame(
   genus = "species",
-  species = gsub(pattern = "^species_", replacement = "", x = island_tip_labels),
+  species = gsub(
+    pattern = "^species_",
+    replacement = "",
+    x = island_tip_labels
+  ),
   tip_labels = island_tip_labels,
   tip_endemicity_status = sample(
     c("endemic", "nonendemic"), size = 25, replace = TRUE),

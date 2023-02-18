@@ -10,17 +10,17 @@ library(ggtree)
 load("data/world_border.rda")
 world <- ne_countries(scale = "medium", returnclass = "sf")
 
-PROJ <- "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+PROJ <- "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs" # nolint
 
 world <- st_transform(world, PROJ)
 
 world_map <- ggplot(data = world) +
   geom_sf(color = "gray50", fill = "gray50") +
   geom_polygon(
-    data=world_border,
-    aes(x=long, y=lat),
-    colour="black",
-    fill="transparent",
+    data = world_border,
+    aes(x = long, y = lat),
+    colour = "black",
+    fill = "transparent",
     size = 0.25
   ) +
   theme_void() +
@@ -45,17 +45,21 @@ set.seed(2)
 phylo <- TreeSim::sim.bd.taxa(n = 25, numbsim = 1, lambda = 1, mu = 0)[[1]]
 phylo <- phylo4(phylo)
 tip_data <- data.frame(
-  colour = c("black", "#008080", "black", "black", "#FF7F50", "black", "#FF7F50",
-             "#FF7F50", "#FF7F50", "#FF7F50", "black", "black", "black", "black",
-             "#FF7F50", "#FF7F50", "#FF7F50", "black", "black", "black", "black",
-             "black", "black", "black", "black"),
+  colour = c(
+    "black", "#008080", "black", "black", "#FF7F50", "black", "#FF7F50",
+           "#FF7F50", "#FF7F50", "#FF7F50", "black", "black", "black", "black",
+           "#FF7F50", "#FF7F50", "#FF7F50", "black", "black", "black", "black",
+           "black", "black", "black", "black"
+  ),
   row.names = nodeId(phylo, "tip"))
 node_data <- data.frame(
-  colour = c("black", "black", "black", "black", "black", "#FF7F50", "black",
-             "black", "#FF7F50", "black", "black", "black", "black", "black",
-             "black", "black", "#FF7F50", "black", "#FF7F50", "#FF7F50",
-             "black", "black", "black", "black"),
-  row.names = nodeId(phylo, "internal"))
+  colour = c(
+    "black", "black", "black", "black", "black", "#FF7F50", "black",
+           "black", "#FF7F50", "black", "black", "black", "black", "black",
+           "black", "black", "#FF7F50", "black", "#FF7F50", "#FF7F50",
+           "black", "black", "black", "black"),
+           row.names = nodeId(phylo, "internal")
+)
 
 phylod <- phylo4d(x = phylo, tip.data = tip_data, node.data = node_data)
 
@@ -193,9 +197,9 @@ island <- cowplot::ggdraw(island_phylo) +
   cowplot::draw_plot(hawaii_map, 0.1, 0.65, 0.4, 0.4)
 
 prow <- plot_grid(
-  global + theme(legend.position="none"),
-  island + theme(legend.position="none"),
-  align = 'vh',
+  global + theme(legend.position = "none"),
+  island + theme(legend.position = "none"),
+  align = "vh",
   labels = "AUTO",
   label_x = -0.01,
   hjust = -1,
@@ -214,4 +218,3 @@ ggplot2::ggsave(
   units = "mm",
   dpi = 600
 )
-

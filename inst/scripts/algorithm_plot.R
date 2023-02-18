@@ -5,13 +5,19 @@ set.seed(
   sample.kind = "Rejection"
 )
 phylo <- ape::rphylo(n = 5, birth = 0.1, death = 0)
-phylo$tip.label <- c("species_a", "species_b", "species_c", "species_d", "species_e")
+phylo$tip.label <- c(
+  "species_a", "species_b", "species_c", "species_d", "species_e"
+)
 phylo <- phylobase::phylo4(phylo)
 endemicity_status <- c("endemic", "nonendemic", "endemic", "not_present",
                      "not_present")
 phylod <- phylobase::phylo4d(phylo, as.data.frame(endemicity_status))
 min_plot <- DAISIEprep::plot_phylod(phylod = phylod)
-phylod <- DAISIEprep::add_asr_node_states(phylod = phylod, asr_method = "parsimony", tie_preference = "mainland")
+phylod <- DAISIEprep::add_asr_node_states(
+  phylod = phylod,
+  asr_method = "parsimony",
+  tie_preference = "mainland"
+)
 asr_plot <- DAISIEprep::plot_phylod(phylod = phylod)
 
 min_plot <- min_plot +
@@ -116,9 +122,9 @@ asr_plot <- asr_plot +
   )
 
 prow <- cowplot::plot_grid(
-  min_plot + ggplot2::theme(legend.position="none"),
-  asr_plot + ggplot2::theme(legend.position="none"),
-  align = 'vh',
+  min_plot + ggplot2::theme(legend.position = "none"),
+  asr_plot + ggplot2::theme(legend.position = "none"),
+  align = "vh",
   labels = c("A", "B"),
   hjust = -1,
   nrow = 1

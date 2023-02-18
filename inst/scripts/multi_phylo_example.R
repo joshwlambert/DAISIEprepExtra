@@ -114,7 +114,7 @@ bidens$tip.label[grep(pattern = "Bidsp", x = bidens$tip.label)] <- c(
 # rename tip labels to conform to DAISIEprep
 # split the tip labels by capital letters as they differentiate the genus name
 # from the collector name and collector tag
-species <- gsub('([[:upper:]])', ' \\1', bidens$tip.label)
+species <- gsub("([[:upper:]])", " \\1", bidens$tip.label)
 
 # split names by white space
 species_split <- strsplit(x = species, split = " ")
@@ -175,8 +175,8 @@ bidens$tip.label <- species_name
 # remove multiple samples of the same species, some of these do not form
 # monophyletic species so for this example we choose one of the species samples
 # in the tree at random and drop the remaining samples (tips). This also stops
-# species richness being inflated, as with the silverswords above, by only having
-# one tip in the tree per species
+# species richness being inflated, as with the silverswords above, by only
+# having one tip in the tree per species
 island_multi_tip <- bidens$tip.label[which(duplicated(bidens$tip.label))]
 island_multi_tip <- unique(island_multi_tip)
 tip_position <- list()
@@ -202,7 +202,7 @@ silversword <- phylobase::phylo4(silversword)
 bidens <- phylobase::phylo4(bidens)
 
 # create endemicity status data frame
-endemicity_status_hesperomannia <- DAISIEprep::create_endemicity_status(
+endemicity_status_hesperomannia <- DAISIEprep::create_endemicity_status( # nolint
   phylo = hesperomannia,
   island_species = hawaii_asters
 )

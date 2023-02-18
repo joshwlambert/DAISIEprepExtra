@@ -29,4 +29,3 @@
 #'
 #' @format An object of class \code{SpatialPolygonDataFrame}
 "world_border"
-

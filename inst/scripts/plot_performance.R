@@ -153,8 +153,8 @@ performance_prob_on_island <- ggplot2::ggplot(data = summary_results) +
     mapping = ggplot2::aes(
       x = tree_size,
       y = mean,
-      ymin = pmax(0.01, mean-sd),
-      ymax = mean+sd,
+      ymin = pmax(0.01, mean - sd),
+      ymax = mean + sd,
       colour = prob_on_island
     ),
     position = ggplot2::position_dodge(width = 0.5),
@@ -191,8 +191,8 @@ performance_prob_on_island <- performance_prob_on_island +
     mapping = ggplot2::aes(
       x = tree_size,
       y = mean,
-      ymin = mean-sd,
-      ymax = mean+sd,
+      ymin = mean - sd,
+      ymax = mean + sd,
       colour = tree_type
     ),
     width = 0.3
@@ -232,8 +232,8 @@ performance_prob_endemic <- ggplot2::ggplot(data = summary_results) +
     mapping = ggplot2::aes(
       x = tree_size,
       y = mean,
-      ymin = pmax(0, mean-sd),
-      ymax = mean+sd,
+      ymin = pmax(0, mean - sd),
+      ymax = mean + sd,
       colour = prob_endemic
     ),
     position = ggplot2::position_dodge(width = 0.5),

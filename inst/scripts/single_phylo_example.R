@@ -115,7 +115,7 @@ island_tbl <- DAISIEprep::add_missing_species(
 )
 
 # add Chaerephon species as separate colonisation
-Chaerephon_stem_age <- DAISIEprep::extract_stem_age(
+Chaerephon_stem_age <- DAISIEprep::extract_stem_age( # nolint
   genus_name = "Chaerephon",
   phylod = phylod,
   stem = "genus"
@@ -182,4 +182,3 @@ ml <- DAISIE::DAISIE_ML_CS(
   ddmodel = 11,
   jitter = 1e-5
 )
-

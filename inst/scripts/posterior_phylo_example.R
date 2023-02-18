@@ -137,9 +137,9 @@ multi_island_tbl <- lapply(
 )
 
 # add Chaerephon species as separate colonisation
-Chaerephon_stem_age <- list()
+Chaerephon_stem_age <- list() # nolint
 for (i in seq_along(multi_phylod)) {
-  Chaerephon_stem_age[[i]] <- DAISIEprep::extract_stem_age(
+  Chaerephon_stem_age[[i]] <- DAISIEprep::extract_stem_age( # nolint
     genus_name = "Chaerephon",
     phylod = multi_phylod[[i]],
     stem = "genus"
