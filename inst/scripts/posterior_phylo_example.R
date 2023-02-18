@@ -124,7 +124,7 @@ multi_island_tbl <- lapply(
   multi_island_tbl,
   DAISIEprep::add_missing_species,
   num_missing_species = 8,
-  species_name = "Megaladapis_edwardsi"
+  species_to_add_to = "Megaladapis_edwardsi"
 )
 
 # add the Plesiorycteropus as a missing_species of the clade with
@@ -133,7 +133,7 @@ multi_island_tbl <- lapply(
   multi_island_tbl,
   DAISIEprep::add_missing_species,
   num_missing_species = 2,
-  species_name = "Tenrec_ecaudatus"
+  species_to_add_to = "Tenrec_ecaudatus"
 )
 
 # add Chaerephon species as separate colonisation
@@ -167,7 +167,7 @@ multi_island_tbl <- lapply(
   multi_island_tbl,
   DAISIEprep::add_missing_species,
   num_missing_species = 2,
-  species_name = "Hipposideros_commersoni"
+  species_to_add_to = "Hipposideros_commersoni"
 )
 
 
