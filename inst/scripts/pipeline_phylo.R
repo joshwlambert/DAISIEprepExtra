@@ -41,7 +41,7 @@ phylo <- ggtree::ggtree(phylod) +
 
 ggplot2::ggsave(
   plot = phylo,
-  filename = file.path("plots", "pipeline_phylo.png"),
+  filename = file.path("inst", "plots", "pipeline_phylo.png"),
   device = "png",
   width = 150,
   height = 100,

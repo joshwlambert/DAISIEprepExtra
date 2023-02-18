@@ -207,7 +207,7 @@ global_island <- plot_grid(prow, legend, rel_widths = c(4, 1))
 
 ggplot2::ggsave(
   plot = global_island,
-  filename = file.path("plots", "global_island.png"),
+  filename = file.path("inst", "plots", "global_island.png"),
   device = "png",
   width = 300,
   height = 150,

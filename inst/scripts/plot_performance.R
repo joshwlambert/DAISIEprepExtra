@@ -258,7 +258,7 @@ performance_prob_endemic <- ggplot2::ggplot(data = summary_results) +
 
 ggplot2::ggsave(
   plot = performance_prob_on_island,
-  filename = file.path("plots", "performance_prob_on_island.png"),
+  filename = file.path("inst", "plots", "performance_prob_on_island.png"),
   device = "png",
   width = 150,
   height = 100,
@@ -268,7 +268,7 @@ ggplot2::ggsave(
 
 ggplot2::ggsave(
   plot = performance_prob_endemic,
-  filename = file.path("plots", "performance_prob_endemic.png"),
+  filename = file.path("inst", "plots", "performance_prob_endemic.png"),
   device = "png",
   width = 150,
   height = 100,
