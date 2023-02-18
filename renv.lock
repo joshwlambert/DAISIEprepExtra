@@ -19,10 +19,10 @@
     },
     "DAISIE": {
       "Package": "DAISIE",
-      "Version": "4.2.0",
+      "Version": "4.3.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f19febee79b7de38926c9fd0fa5f2efa",
+      "Hash": "a5f2818f646e41e9169bb8836489c0d7",
       "Requirements": [
         "BH",
         "DDD",
@@ -41,16 +41,16 @@
     },
     "DAISIEprep": {
       "Package": "DAISIEprep",
-      "Version": "0.2.1",
+      "Version": "0.3.0",
       "Source": "GitHub",
+      "Remotes": "YuLab-SMU/ggtree, nmatzke/BioGeoBEARS",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteUsername": "joshwlambert",
       "RemoteRepo": "DAISIEprep",
-      "RemoteRef": "d9a3e7684db300f22a2cfd9cfac4283ea4bc3476",
-      "RemoteSha": "d9a3e7684db300f22a2cfd9cfac4283ea4bc3476",
-      "Remotes": "YuLab-SMU/ggtree, nmatzke/BioGeoBEARS",
-      "Hash": "941469d2894288d9c11df638dda00f74",
+      "RemoteUsername": "joshwlambert",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "3af100021a284acb8a1d5a85f046715dc38b77d0",
+      "Hash": "1cd6597297eb55777dcb7eef078e347f",
       "Requirements": [
         "DAISIE",
         "ape",
@@ -172,6 +172,16 @@
       "Hash": "e749cae40fa9ef469b6050959517453c",
       "Requirements": []
     },
+    "RcppArmadillo": {
+      "Package": "RcppArmadillo",
+      "Version": "0.11.4.4.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "717bd6784b92282f57b21376007ba861",
+      "Requirements": [
+        "Rcpp"
+      ]
+    },
     "RcppEigen": {
       "Package": "RcppEigen",
       "Version": "0.3.3.9.3",
@@ -220,24 +230,27 @@
     },
     "ade4": {
       "Package": "ade4",
-      "Version": "1.7-20",
+      "Version": "1.7-22",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "425a89023d742d7b49e5387157973680",
+      "Hash": "9768be866e8e02810e94ceb95b32b367",
       "Requirements": [
         "MASS",
+        "Rcpp",
+        "RcppArmadillo",
         "pixmap",
         "sp"
       ]
     },
     "ape": {
       "Package": "ape",
-      "Version": "5.6-2",
+      "Version": "5.7",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "894108412a7ec23d5de85cdcce871c8b",
+      "Hash": "d4bf1c406e268d86bde2cd9aeadf815b",
       "Requirements": [
         "Rcpp",
+        "digest",
         "lattice",
         "nlme"
       ]
@@ -601,10 +614,10 @@
     },
     "ggplot2": {
       "Package": "ggplot2",
-      "Version": "3.4.0",
+      "Version": "3.4.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "fd2aab12f54400c6bca43687231e246b",
+      "Hash": "d494daf77c4aa7f084dbbe6ca5dcaca7",
       "Requirements": [
         "MASS",
         "cli",
@@ -755,10 +768,10 @@
     },
     "igraph": {
       "Package": "igraph",
-      "Version": "1.3.5",
+      "Version": "1.4.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "132b06d7060f11ba8b4c7e7f385e9b7a",
+      "Hash": "14734eae03f062b55e794b07784aeddc",
       "Requirements": [
         "Matrix",
         "magrittr",
