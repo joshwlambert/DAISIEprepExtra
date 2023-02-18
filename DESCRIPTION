@@ -25,6 +25,8 @@ Maintainer: Joshua W. Lambert <j.w.l.lambert@rug.nl>
 Description: This is a data and scripts package that stores the materials needed
     for reproduction of the examples, analyses and plots for the applications paper
     describing the DAISIEprep package.
+URL: https://github.com/joshwlambert/DAISIEprepExtra
+BugReports: https://github.com/joshwlambert/DAISIEprepExtra/issues
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
