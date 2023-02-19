@@ -55,6 +55,13 @@ complete_phylo <- ape::read.nexus(
   )
 )
 
+# remove tags after species name in tip labels
+complete_phylo$tip.label <- gsub(
+  pattern = "([A-Za-z]+_[A-Za-z]+).*",
+  replacement = "\\1",
+  x = complete_phylo$tip.label
+)
+
 # convert tree to phylo4 objects
 complete_phylo <- phylobase::phylo4(complete_phylo)
 
@@ -103,7 +110,7 @@ no_island_tbl_missing_species <- DAISIEprep::rm_multi_missing_species(
 island_tbl <- DAISIEprep::add_missing_species(
   island_tbl = island_tbl,
   num_missing_species = 8,
-  species_name = "Megaladapis_edwardsi"
+  species_to_add_to = "Megaladapis_edwardsi"
 )
 
 # add the Plesiorycteropus as a missing_species of the clade with
@@ -111,7 +118,7 @@ island_tbl <- DAISIEprep::add_missing_species(
 island_tbl <- DAISIEprep::add_missing_species(
   island_tbl = island_tbl,
   num_missing_species = 2,
-  species_name = "Tenrec_ecaudatus"
+  species_to_add_to = "Tenrec_ecaudatus"
 )
 
 # add Chaerephon species as separate colonisation
@@ -140,7 +147,7 @@ island_tbl <- DAISIEprep::add_island_colonist(
 island_tbl <- DAISIEprep::add_missing_species(
   island_tbl = island_tbl,
   num_missing_species = 2,
-  species_name = "Hipposideros_commersoni"
+  species_to_add_to = "Hipposideros_commersoni"
 )
 
 # convert to daisie data list
