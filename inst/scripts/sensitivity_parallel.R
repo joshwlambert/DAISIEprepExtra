@@ -34,7 +34,7 @@ sensitivity_dna <- DAISIEprep::sensitivity(
 )
 
 sensitivity_complete <- DAISIEprep::sensitivity(
-  phylo = phylos_dna[[tree_index]],
+  phylo = phylos_complete[[tree_index]],
   island_species = madagascar_mammals,
   extraction_method = c("min", "asr"),
   asr_method = c("parsimony", "mk"),
