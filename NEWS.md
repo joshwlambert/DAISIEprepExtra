@@ -1,3 +1,12 @@
+# DAISIEprepExtra 0.2.0
+
+Version release for biorxiv submission. Changes include:
+
+* Updates to various R and bash scripts
+* Added `{renv}` for package management
+* Several bug fixes
+* No deprecations
+
 # DAISIEprepExtra 0.1.0
 
 * Added a `NEWS.md` file to track changes to the package.
