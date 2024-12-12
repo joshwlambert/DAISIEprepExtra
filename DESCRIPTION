@@ -2,7 +2,7 @@ Package: DAISIEprepExtra
 Type: Package
 Title: Scripts and documents to accompany and reproduce Lambert et al. 
     application paper describing the DAISIEprep R package
-Version: 0.2.0
+Version: 0.3.0
 Author: Joshua W. Lambert
 Authors@R: c(
     person(given = "Joshua W.",
@@ -43,8 +43,6 @@ Imports:
     ggtree,
     tibble,
     remotes
-Remotes:
-    joshwlambert/DAISIEprep
 Depends: 
     R (>= 4.1)
 RoxygenNote: 7.2.3

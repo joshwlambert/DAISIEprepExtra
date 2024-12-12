@@ -1,3 +1,11 @@
+# DAISIEprepExtra 0.3.0
+
+Version release for journal submission. Changes include:
+
+* Update `DESCRIPTION`
+    - Remove `DAISIEprep` from `Remotes`
+* Update GHA R-CMD-check workflow file
+
 # DAISIEprepExtra 0.2.0
 
 Version release for biorxiv submission. Changes include:
