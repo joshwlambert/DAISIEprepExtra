@@ -36,7 +36,7 @@ The complete scripts to extract and analyse the mammal and asteraceae data can b
   - [Single phylogeny script: `inst/scripts/single_phylo_example.R`](inst/scripts/single_phylo_example.R)
   - [Multi-phylogeny script: `inst/scripts/posterior_phylo_example.R`](inst/scripts/posterior_phylo_example.R)
 
-* [The asteraceae of Hawaii R script: `inst/scripts/single_phylo_example.R`](inst/scripts/single_phylo_example.R)
+* [The asteraceae of Hawaii R script: `inst/scripts/multi_phylo_example.R`](inst/scripts/multi_phylo_example.R)
 
 The Peregrine [High Performance Computing Cluster](https://wiki.hpc.rug.nl/peregrine/start) at the University of Groningen was used to run several scripts that would otherwise take too long to run on a personal computer. The bash scripts used to submit jobs to run on the cluster can be found in 'inst/extdata/bash/'. This includes scripts to load the packages stored within the renv, scripts to run the sensitivity and performance analysis for vignettes in the DAISIEprep package, and scripts to run the empirical examples. All bash scripts, except the install script and the script to run jobs in parallel (which have "_parallel.sh" in the file name) call R scripts found in 'inst/extdata/scripts/' and thus can be run on any computer with R installed.
 
