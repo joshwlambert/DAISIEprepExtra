@@ -7,7 +7,16 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7654823.svg)](https://doi.org/10.5281/zenodo.7654823)
 <!-- badges: end -->
 
-This package contains the scripts and documents to accompany and reproduce Lambert et al. (in prep) application paper describing the `{DAISIEprep}` R package. 
+This package contains the scripts and documents to accompany and reproduce Lambert et al. (in prep) application paper describing the `{DAISIEprep}` R package.
+
+## Installation
+
+DAISIEprepExtra can be installed from GitHub:
+
+``` r
+if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+remotes::install_github("joshwlambert/DAISIEprepExtra")
+```
 
 The package contains several datasets and scripts in order to reproduce the figures and analysis from the 
 applications paper. 
